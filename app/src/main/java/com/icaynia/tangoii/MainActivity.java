@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -20,7 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-
+    private ListView m_ListView;
+    private wordAdapter m_Adapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -56,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,7 +115,16 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(((MainActivity)getContext()).getFragmentId(getArguments().getInt(ARG_SECTION_NUMBER)-1), container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+
+            if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 0) {
+                TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+
+            } else if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 1) {
+                ((MainActivity)getContext()).onFragment2(rootView);
+
+            } else {
+
+            }
             return rootView;
         }
 
@@ -155,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public int getFragmentId(int id) {
-        switch (id) {
+    public int getFragmentId(int index) {
+        switch (index) {
             case 0:
                 return R.layout.fragment_home;
             case 1:
@@ -167,6 +182,31 @@ public class MainActivity extends AppCompatActivity {
                 return R.layout.fragment_4;
         }
         return 0;
+    }
+
+    public void onFragment2(View v) {
+        // 커스텀 어댑터 생성
+        m_Adapter = new wordAdapter();
+
+        // Xml에서 추가한 ListView 연결
+        m_ListView = (ListView) v.findViewById(R.id.wordlistview);
+
+        // ListView에 어댑터 연결
+        m_ListView.setAdapter(m_Adapter);
+
+        // ListView에 아이템 추가
+        m_Adapter.add("하스스톤");
+        m_Adapter.add("몬스터 헌터");
+        m_Adapter.add("디아블로");
+        m_Adapter.add("와우");
+        m_Adapter.add("하스스톤");
+        m_Adapter.add("몬스터 헌터");
+        m_Adapter.add("디아블로");
+        m_Adapter.add("와우");
+        m_Adapter.add("하스스톤");
+        m_Adapter.add("몬스터 헌터");
+        m_Adapter.add("디아블로");
+        m_Adapter.add("와우");
     }
 
 }
