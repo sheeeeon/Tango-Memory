@@ -19,7 +19,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp">
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -45,7 +46,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="たんご"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
 
                 </LinearLayout>
 
@@ -73,7 +75,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -118,7 +121,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -163,7 +167,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp">
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -189,7 +194,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="でんわ"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
 
                 </LinearLayout>
 
@@ -217,7 +223,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -240,7 +247,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="じゅぎょう"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -263,7 +271,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -286,7 +295,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="くる"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -309,7 +319,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp">
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -335,7 +346,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="げんご"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
 
                 </LinearLayout>
 
@@ -363,7 +375,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -386,7 +399,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="がっこう"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -409,7 +423,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -432,7 +447,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="せんせい"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -455,7 +471,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp">
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -481,7 +498,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="かいはつ"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
 
                 </LinearLayout>
 
@@ -509,7 +527,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -532,7 +551,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="しっぱい"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -555,7 +575,8 @@
                 android:background="#f1f1f1"
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp" >
+                android:paddingRight="15dp"
+                android:layout_marginTop="2dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -578,7 +599,8 @@
                         android:layout_height="wrap_content"
                         android:paddingRight="15dp"
                         android:text="たんご"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        android:layout_marginTop="5dp" />
                 </LinearLayout>
 
                 <LinearLayout

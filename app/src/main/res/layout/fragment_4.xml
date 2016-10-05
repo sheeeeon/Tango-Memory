@@ -3,9 +3,174 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/section_label"
-        android:text="Fragment 4"/>
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사용자 설정"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="1번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="2번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="3번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="4번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사용자 설정"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="1번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="2번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="3번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="4번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사용자 설정"
+                    android:textSize="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="1번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="2번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="3번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+                <Switch
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="4번 항목"
+                    android:textSize="15dp"
+                    android:textColor="#555555" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
