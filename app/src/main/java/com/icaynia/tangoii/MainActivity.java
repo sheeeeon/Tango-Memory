@@ -1,6 +1,8 @@
 package com.icaynia.tangoii;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
@@ -12,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    private ListView m_ListView;
-    private wordAdapter m_Adapter;
+    public wordManager mWordManager;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mWordManager = new wordManager(this);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -185,28 +188,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFragment2(View v) {
-        // 커스텀 어댑터 생성
-        m_Adapter = new wordAdapter();
+        mWordManager.connectAdapter(v);
+        mWordManager.getWord(2);
 
-        // Xml에서 추가한 ListView 연결
-        m_ListView = (ListView) v.findViewById(R.id.wordlistview);
-
-        // ListView에 어댑터 연결
-        m_ListView.setAdapter(m_Adapter);
-
-        // ListView에 아이템 추가
-        m_Adapter.add("하스스톤");
-        m_Adapter.add("몬스터 헌터");
-        m_Adapter.add("디아블로");
-        m_Adapter.add("와우");
-        m_Adapter.add("하스스톤");
-        m_Adapter.add("몬스터 헌터");
-        m_Adapter.add("디아블로");
-        m_Adapter.add("와우");
-        m_Adapter.add("하스스톤");
-        m_Adapter.add("몬스터 헌터");
-        m_Adapter.add("디아블로");
-        m_Adapter.add("와우");
     }
 
 }
