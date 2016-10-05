@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(((MainActivity)getContext()).getFragmentId(getArguments().getInt(ARG_SECTION_NUMBER)-1), container, false);
 
             if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 0) {
-                TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+                ((MainActivity)getContext()).onFragment1(rootView);
 
             } else if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 1) {
                 ((MainActivity)getContext()).onFragment2(rootView);
@@ -185,6 +185,11 @@ public class MainActivity extends AppCompatActivity {
                 return R.layout.fragment_4;
         }
         return 0;
+    }
+
+    public void onFragment1(View v) {
+        TextView wordcountTv = (TextView) v.findViewById(R.id.wordcountTv);
+        wordcountTv.setText(mWordManager.getWordRows()+"");
     }
 
     public void onFragment2(View v) {
