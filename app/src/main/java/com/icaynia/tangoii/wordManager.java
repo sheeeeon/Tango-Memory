@@ -9,12 +9,17 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by icaynia on 16. 10. 5..
  */
 public class wordManager {
+
+    String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
 
     private MySQLiteOpenHelper helper;
     String dbName = "tangoii.db";
@@ -63,8 +68,9 @@ public class wordManager {
         m_ListView.setAdapter(m_Adapter);
 
         // ListView에 아이템 추가
-        m_Adapter.add("하스스톤");
+        //m_Adapter.add("하스스톤");
     }
+
 
     public word getWord(int index) {
         String sql = "select * from tangoii where id = "+index+";";
@@ -87,7 +93,7 @@ public class wordManager {
 
     public void addWord(String word) {
         db.execSQL("INSERT INTO tangoii " +
-                "VALUES(null,null,'"+word+"',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);"
+                "VALUES(null,null,'"+word+"',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'"+today+"');"
         );
     }
 
@@ -100,4 +106,18 @@ public class wordManager {
 
         return rows;
     }
+
+    public int getWordRowsToday() {
+        String sql = "SELECT * FROM tangoii where regdate = '"+today+"'";
+
+        Cursor result = db.rawQuery(sql, null);
+
+        int rows = result.getCount();
+
+        return rows;
+
+    }
+
+
+
 }

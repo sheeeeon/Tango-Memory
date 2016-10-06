@@ -17,10 +17,10 @@ import java.util.Objects;
  */
 public class wordAdapter extends BaseAdapter{
 
-    private ArrayList<String> m_List;
+    private ArrayList<word> m_List;
 
     public wordAdapter() {
-        m_List = new ArrayList<String>();
+        m_List = new ArrayList<word>();
     }
 
     @Override
@@ -49,8 +49,13 @@ public class wordAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.item_wordview, parent, false);
 
             // TextView에 현재 position의 문자열 추가
-            TextView text = (TextView) convertView.findViewById(R.id.text);
-            text.setText(m_List.get(position));
+            TextView korean = (TextView) convertView.findViewById(R.id.korean);
+            TextView word = (TextView) convertView.findViewById(R.id.wordtx);
+            TextView hiragana = (TextView) convertView.findViewById(R.id.hiraganatx);
+
+            korean.setText(m_List.get(position).korean);
+            word.setText(m_List.get(position).hiragana);
+            hiragana.setText(m_List.get(position).word);
 
             // 버튼을 터치 했을 때 이벤트 발생
 
@@ -93,8 +98,12 @@ public class wordAdapter extends BaseAdapter{
     }
 
     // 외부에서 아이템 추가 요청 시 사용
-    public void add(String _msg) {
-        m_List.add(_msg);
+    public void add(String _word, String _hiragana, String _korean) {
+        word nword = new word();
+        nword.word = _word;
+        nword.hiragana = _hiragana;
+        nword.korean = _korean;
+        m_List.add(nword);
     }
 
     // 외부에서 아이템 삭제 요청 시 사용

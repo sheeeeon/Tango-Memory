@@ -7,9 +7,11 @@ public class word {
 
     int id;
     String        parts;
-    String        word;
-    String        hiragana;
-    String        korean ;
+
+    String        word;         //
+    String        hiragana;     //
+    String        korean ;      //
+
     String        korean2 ;
     String        example ;
     String        exampleko;

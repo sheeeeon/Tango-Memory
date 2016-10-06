@@ -20,6 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="15dp"
+                android:id="@+id/wordtx"
                 android:text="単語"
                 android:textSize="25dp" />
 
@@ -34,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="15dp"
+                android:id="@+id/hiraganatx"
                 android:text="たんご"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp" />
@@ -50,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/text"
+                android:id="@+id/korean"
                 android:text="단어"
                 android:textSize="20dp" />
 
