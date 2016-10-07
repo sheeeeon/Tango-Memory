@@ -1,11 +1,14 @@
 package com.icaynia.tangoii;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -46,12 +49,18 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
 
-    private TextView addword;
+    private TextView addwordtv;
+
+    private View dialogV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
 
         mWordManager = new wordManager(this);
         // Create the adapter that will return a fragment for each of the three
@@ -62,10 +71,62 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 1) {
+                    onAddwordbutton(true);
+                } else {
+                    onAddwordbutton(false);
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+
+
+        });
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        addword = (TextView) findViewById(R.id.addwordView);
+        addwordtv = (TextView) findViewById(R.id.addwordView);
+
+        addwordtv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                alert.setTitle("--");
+                alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 테스트 부분 ((MainActivity)getContext()).makeToast("확인한 부분");
+                        //------- 데이터 부분
+                        //-------
+                        dialog.dismiss();
+                    }
+                });
+                alert.setCancelable(false);
+                alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //((MainActivity)getContext()).makeToast("Scene 작성을 취소하였습니다.");
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.setView(dialogV);
+                //데이터 관련
+                alert.show();
+            }
+        });
+
 
     }
 
@@ -206,7 +267,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAddwordbutton(boolean _b) {
-        addword.set
+        if (_b) {
+            addwordtv.setVisibility(View.VISIBLE);
+        }
+        else if (!_b) {
+            addwordtv.setVisibility(View.GONE);
+
+        }
+    }
+
+    public void makeToast(String str) {
+
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
 }
