@@ -6,6 +6,30 @@
     android:padding="5dp" >
 
     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="일본어 단어"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/et_word"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:hint="단어를 입력하세요"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
@@ -15,16 +39,40 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.5"
-            android:text="트랙 이름"
+            android:text="히라가나 표기"
             android:textSize="12sp"
             android:gravity="center"/>
 
         <EditText
-            android:id="@+id/trackName_edit"
+            android:id="@+id/et_hiragana"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
-            android:hint="트랙 이름을 입력하세요"
+            android:hint="히라가나 표기를 입력하세요"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="모국어"
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/et_korean"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:hint="한국어 뜻을 입력하세요"
             android:textSize="12sp"
             android:gravity="center"/>
 

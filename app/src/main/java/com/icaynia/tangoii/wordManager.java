@@ -66,9 +66,8 @@ public class wordManager {
         m_ListView = (ListView) fv.findViewById(R.id.wordlistview);
         // ListView에 어댑터 연결
         m_ListView.setAdapter(m_Adapter);
-
         // ListView에 아이템 추가
-        //m_Adapter.add("하스스톤");
+        m_Adapter.add("ストン", "w", "w");
     }
 
 

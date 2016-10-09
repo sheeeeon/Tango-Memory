@@ -101,34 +101,13 @@ public class MainActivity extends AppCompatActivity {
         addwordtv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-                alert.setTitle("--");
-                alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // 테스트 부분 ((MainActivity)getContext()).makeToast("확인한 부분");
-                        //------- 데이터 부분
-                        //-------
-                        dialog.dismiss();
-                    }
-                });
-                alert.setCancelable(false);
-                alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //((MainActivity)getContext()).makeToast("Scene 작성을 취소하였습니다.");
-                        dialog.dismiss();
-                    }
-                });
 
-                alert.setView(dialogV);
-                //데이터 관련
-                alert.show();
             }
         });
 
 
     }
+
 
 
 
