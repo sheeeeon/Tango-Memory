@@ -2,6 +2,7 @@ package com.icaynia.tangoii;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         addwordtv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onAddwordDialog();
 
             }
         });
@@ -258,6 +260,35 @@ public class MainActivity extends AppCompatActivity {
     public void makeToast(String str) {
 
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+    }
+    public void onAddwordDialog() {
+        dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
+        final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
+        builder.setTitle("-ww");
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        builder.setCancelable(false);
+        builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //((MainActivity)getContext()).makeToast("Scene 작성을 취소하였습니다.");
+                dialog.dismiss();
+            }
+        });
+
+        builder.setView(dialogV);
+        //데이터 관련
+
+
+        final AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        alert.show();    // 알림창 띄우기
+
     }
 
 
