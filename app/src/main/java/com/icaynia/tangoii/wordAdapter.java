@@ -1,6 +1,8 @@
 package com.icaynia.tangoii;
 
 import android.content.Context;
+import android.provider.Contacts;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,20 +50,26 @@ public class wordAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
-
         if ( convertView == null ) {
-            // view가 null일 경우 커스텀 레이아웃을 얻어 옴
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.item_wordview, parent, false);
+        }
+            ViewHolder vh = new ViewHolder();
 
-            // TextView에 현재 position의 문자열 추가
-            TextView korean = (TextView) convertView.findViewById(R.id.korean);
-            TextView word = (TextView) convertView.findViewById(R.id.wordtx);
-            TextView hiragana = (TextView) convertView.findViewById(R.id.hiraganatx);
+            vh.korean = (TextView) convertView.findViewById(R.id.korean);
+            vh.word = (TextView) convertView.findViewById(R.id.wordtx);
+            vh.hiragana = (TextView) convertView.findViewById(R.id.hiraganatx);
 
-            korean.setText(m_List.get(position).korean);
-            word.setText(m_List.get(position).word);
-            hiragana.setText(m_List.get(position).hiragana);
+            convertView.setTag(vh);
+
+            word n = m_List.get(position);
+            if (n != null) {
+                ViewHolder holder = (ViewHolder) convertView.getTag();
+                holder.korean.setText(n.korean);
+                holder.word.setText(n.word);
+                holder.hiragana.setText(n.hiragana);
+            }
 
             // 버튼을 터치 했을 때 이벤트 발생
 
@@ -76,7 +84,7 @@ public class wordAdapter extends BaseAdapter{
                 }
             });
 
-            */
+
 
             // 리스트 아이템을 터치 했을 때 이벤트 발생
             convertView.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +106,8 @@ public class wordAdapter extends BaseAdapter{
                     return true;
                 }
             });
-        }
+            */
+
 
         return convertView;
     }
@@ -121,11 +130,25 @@ public class wordAdapter extends BaseAdapter{
 
     // 외부에서 아이템 삭제 요청 시 사용
     public void remove(int _position) {
+
         m_List.remove(_position);
+    }
+
+    public void initList() {
+        m_List = new ArrayList<word>();
+    }
+
+    static class ViewHolder {
+        TextView korean;
+        TextView word;
+        TextView hiragana;
+
     }
 
 
 }
+
+
 
 
 //http://berabue.blogspot.kr/2014/05/android-listview.html

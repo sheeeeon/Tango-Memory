@@ -85,17 +85,15 @@ public class wordManager {
             mword.id = result.getInt(0);
 
             mword.word = result.getString(2);
-
-            Toast.makeText(context, "Rows="+getWordRows()+"index= "+mword.id+" voca="+mword.word, Toast.LENGTH_SHORT).show();
-        }
+ }
         result.close();
 
         return mword;
     }
 
-    public void addWord(String word) {
+    public void addWord(String word, String hiragana, String korean) {
         db.execSQL("INSERT INTO tangoii " +
-                "VALUES(null,null,'"+word+"',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'"+today+"');"
+                "VALUES(null,null,'"+word+"','"+hiragana+"','"+korean+"',null,null,null,null,null,null,null,null,null,null,null,null,null,'"+today+"');"
         );
     }
 
@@ -121,6 +119,9 @@ public class wordManager {
     }
 
     public void listRefrash() {
+        //adapter 지우기
+        m_Adapter.initList();
+
         try {
             //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
             Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
@@ -134,7 +135,7 @@ public class wordManager {
                         nword.korean = c.getString(4);
                         nword.korean2 = c.getString(5);
 
-                        m_Adapter.add(nword.word, nword.id+"", nword.korean);
+                        m_Adapter.add(nword.word+"", nword.hiragana+"", nword.korean+"");
 
                         //ArrayList에 추가합니다..
                         wordList.add(nword);

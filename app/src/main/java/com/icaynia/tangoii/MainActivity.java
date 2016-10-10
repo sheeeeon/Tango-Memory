@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -261,14 +262,21 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
+
     public void onAddwordDialog() {
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
         final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
-        builder.setTitle("-ww");
+        builder.setTitle("단어 추가하기");
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                EditText et_word = (EditText) dialogV.findViewById(R.id.et_word);
+                EditText et_hiragana = (EditText) dialogV.findViewById(R.id.et_hiragana);
+                EditText et_korean = (EditText) dialogV.findViewById(R.id.et_korean);
+                if (!et_word.getText().toString().isEmpty())
+                    mWordManager.addWord(et_word.getText().toString(), et_hiragana.getText().toString(), et_korean.getText().toString());
 
+                mWordManager.listRefrash();
                 dialog.dismiss();
             }
         });
