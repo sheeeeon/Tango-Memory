@@ -28,6 +28,8 @@ public class wordManager {
     String tag = "SQLite"; // Log 에 사용할 tag
     Context context;
 
+    ArrayList<word> wordList;
+
 
     private ListView m_ListView;
     private wordAdapter m_Adapter;
@@ -35,6 +37,7 @@ public class wordManager {
 
     public wordManager(Context _context) {
         context = _context;
+        wordList = new ArrayList<word>();
         helper = new MySQLiteOpenHelper(
                 context,    // 현재 화면의 제어권자
                 dbName,     // db 이름
@@ -66,8 +69,8 @@ public class wordManager {
         m_ListView = (ListView) fv.findViewById(R.id.wordlistview);
         // ListView에 어댑터 연결
         m_ListView.setAdapter(m_Adapter);
-        // ListView에 아이템 추가
-        m_Adapter.add("ストン", "w", "w");
+
+        this.listRefrash();
     }
 
 
@@ -117,6 +120,36 @@ public class wordManager {
 
     }
 
+    public void listRefrash() {
+        try {
+            //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
+            Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                        word nword = new word();
+                        nword.id = c.getInt(c.getColumnIndex("id"));
+                        nword.word = c.getString(2);
+                        nword.hiragana = c.getString(3);
+                        nword.korean = c.getString(4);
+                        nword.korean2 = c.getString(5);
 
+                        m_Adapter.add(nword.word, nword.id+"", nword.korean);
+
+                        //ArrayList에 추가합니다..
+                        wordList.add(nword);
+
+                    } while (c.moveToNext());
+                }
+            }
+            c.close();
+        } catch (SQLiteException se) {
+            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("",  se.getMessage());
+        }
+
+    }
 
 }
+
+

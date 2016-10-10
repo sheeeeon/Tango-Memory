@@ -1,6 +1,7 @@
 package com.icaynia.tangoii;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,11 @@ public class wordAdapter extends BaseAdapter{
 
     public wordAdapter() {
         m_List = new ArrayList<word>();
+    }
+
+    public wordAdapter(ArrayList<word> _m_List) {
+        m_List = _m_List;
+        importList();
     }
 
     @Override
@@ -54,8 +60,8 @@ public class wordAdapter extends BaseAdapter{
             TextView hiragana = (TextView) convertView.findViewById(R.id.hiraganatx);
 
             korean.setText(m_List.get(position).korean);
-            word.setText(m_List.get(position).hiragana);
-            hiragana.setText(m_List.get(position).word);
+            word.setText(m_List.get(position).word);
+            hiragana.setText(m_List.get(position).hiragana);
 
             // 버튼을 터치 했을 때 이벤트 발생
 
@@ -95,6 +101,13 @@ public class wordAdapter extends BaseAdapter{
         }
 
         return convertView;
+    }
+    public void importList() {
+        String TAG = "ww";
+        for(word i : m_List){
+            Log.d(TAG, "id = " + i.id);
+            Log.d(TAG, "word = " + i.word);
+        }
     }
 
     // 외부에서 아이템 추가 요청 시 사용
