@@ -179,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
     }
 
     /**
@@ -218,6 +220,8 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+
+
     }
 
     public int getFragmentId(int index) {
@@ -296,6 +300,13 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog alert = builder.create();
         alert.setCanceledOnTouchOutside(false);
         alert.show();    // 알림창 띄우기
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        //this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
 
     }
 

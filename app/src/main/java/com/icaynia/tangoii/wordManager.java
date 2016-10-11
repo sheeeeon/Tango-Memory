@@ -83,8 +83,9 @@ public class wordManager {
         // result(Cursor 객체)가 비어 있으면 false 리턴
         if(result.moveToFirst()){
             mword.id = result.getInt(0);
-
             mword.word = result.getString(2);
+            mword.hiragana = result.getString(3);
+            mword.korean = result.getString(4);
  }
         result.close();
 

@@ -1,6 +1,7 @@
 package com.icaynia.tangoii;
 
 import android.content.Context;
+import android.content.Intent;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -73,17 +74,6 @@ public class wordAdapter extends BaseAdapter{
 
             // 버튼을 터치 했을 때 이벤트 발생
 
-            /*
-            Button btn = (Button) convertView.findViewById(R.id.btn_test);
-            btn.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    // 터치 시 해당 아이템 이름 출력
-                    Toast.makeText(context, m_List.get(pos), Toast.LENGTH_SHORT).show();
-                }
-            });
-
 
 
             // 리스트 아이템을 터치 했을 때 이벤트 발생
@@ -92,10 +82,18 @@ public class wordAdapter extends BaseAdapter{
                 @Override
                 public void onClick(View v) {
                     // 터치 시 해당 아이템 이름 출력
-                    Toast.makeText(context, "리스트 클릭 : "+m_List.get(pos), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "리스트 클릭 : "+m_List.get(pos), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, infActivity.class);
+                    intent.putExtra("no", pos+1);
+// 두번째 액티비티를 실행하기 위한 인텐트
+                    context.startActivity(intent);
+                    //((MainActivity)context).
+                            //overridePendingTransition( R.anim.anim_slide_in_left , R.anim.anim_slide_out_right);
+
                 }
             });
 
+            /*
             // 리스트 아이템을 길게 터치 했을 떄 이벤트 발생
             convertView.setOnLongClickListener(new View.OnLongClickListener() {
 
