@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TextView addwordtv;
-
+    private TextView searchtv;
+    private TextView searchcanceltv;
     private View dialogV;
 
 
@@ -82,8 +83,10 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if (position == 1) {
                     onAddwordbutton(true);
+                    onSearchButton(true);
                 } else {
                     onAddwordbutton(false);
+                    onSearchButton(false);
                 }
 
             }
@@ -99,12 +102,31 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         addwordtv = (TextView) findViewById(R.id.addwordView);
-
         addwordtv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onAddwordDialog();
 
+            }
+        });
+
+        searchtv = (TextView) findViewById(R.id.searchTextView);
+        searchtv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddwordbutton(false);
+                onSearchCancelButton(true);
+                onSearchButton(false);
+            }
+        });
+
+        searchcanceltv = (TextView) findViewById(R.id.search_cancel);
+        searchcanceltv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddwordbutton(true);
+                onSearchCancelButton(false);
+                onSearchButton(true);
             }
         });
 
@@ -250,6 +272,38 @@ public class MainActivity extends AppCompatActivity {
         mWordManager.connectAdapter(v);
         mWordManager.getWord(2);
 
+    }
+
+    public void SearchEditTextView(boolean _b) {
+        if (_b) {
+            onAddwordbutton(false);
+
+        }
+        else if (!_b) {
+            onAddwordbutton(true);
+
+        }
+
+    }
+
+    public void onSearchButton(boolean _b) {
+        if (_b) {
+            searchtv.setVisibility(View.VISIBLE);
+        }
+        else if (!_b) {
+            searchtv.setVisibility(View.GONE);
+
+        }
+    }
+
+    public void onSearchCancelButton(boolean _b) {
+        if (_b) {
+            searchcanceltv.setVisibility(View.VISIBLE);
+        }
+        else if (!_b) {
+            searchcanceltv.setVisibility(View.GONE);
+
+        }
     }
 
     public void onAddwordbutton(boolean _b) {

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#CCCCCC</color>
-    <color name="colorPrimaryDark">#CCCCCC</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#9650ff</color>
+    <color name="colorPrimaryDark">#9650ff</color>
+    <color name="colorAccent">#4e13a7</color>
 
-    <color name="colorActionBar">#ddc6c6c6</color>
-    <color name="colorActionBarShadow">#c9c9c9</color>
+    <color name="colorActionBar">#9650ff</color>
+    <color name="colorActionBarShadow">#c7c7c7</color>
 
 </resources>
