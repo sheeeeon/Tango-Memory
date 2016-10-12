@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
@@ -194,7 +195,8 @@ public class MainActivity extends AppCompatActivity {
             } else if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 1) {
                 ((MainActivity)getContext()).onFragment2(rootView);
 
-            } else {
+            } else if (getArguments().getInt(ARG_SECTION_NUMBER)-1 == 2){
+                ((MainActivity)getContext()).onFragment3(rootView);
 
             }
             return rootView;
@@ -272,6 +274,22 @@ public class MainActivity extends AppCompatActivity {
         mWordManager.connectAdapter(v);
         mWordManager.getWord(2);
 
+    }
+
+    public void onFragment3(View v) {
+        TextView kanjiToHiraganaMenu = (TextView) v.findViewById(R.id.kanjiToHiraganaMenu);
+        kanjiToHiraganaMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onWordToHiragana();
+            }
+        });
+    }
+
+    public void onWordToHiragana() {
+
+        Intent intent = new Intent(this, WordToHiragana.class);
+        startActivity(intent);
     }
 
     public void SearchEditTextView(boolean _b) {

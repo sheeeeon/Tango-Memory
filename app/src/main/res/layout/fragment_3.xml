@@ -5,7 +5,19 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/section_label"
-        android:text="Fragment 3"/>
+        android:layout_height="wrap_content"
+        android:text="단어 게임"
+        android:textSize="30dp"
+        android:padding="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/kanjiToHiraganaMenu"
+        android:text="한자-히라가나 쓰기"
+        android:textSize="18dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="#c5c5c5" />
+
 </LinearLayout>
