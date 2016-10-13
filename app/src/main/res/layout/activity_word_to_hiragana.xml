@@ -43,7 +43,8 @@
                     android:layout_height="match_parent"
                     android:textSize="14dp"
                     android:id="@+id/hiraganavu"
-                    android:text="bbb" />
+                    android:text="bbb"
+                    android:paddingLeft="15dp" />
             </LinearLayout>
 
             <LinearLayout
