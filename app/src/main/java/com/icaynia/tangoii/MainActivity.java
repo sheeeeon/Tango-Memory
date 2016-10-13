@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     return "단어";
                 case 2:
-                    return "SECTION 3";
+                    return "단어 게임";
                 case 3:
                     return "설정";
             }
