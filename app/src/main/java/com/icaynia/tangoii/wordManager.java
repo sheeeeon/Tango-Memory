@@ -119,6 +119,36 @@ public class wordManager {
 
     }
 
+    public ArrayList<word> getWordAll() {
+        ArrayList<word> array = new ArrayList<word>();
+        try {
+            //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
+            Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                        word nword = new word();
+                        nword.id = c.getInt(c.getColumnIndex("id"));
+                        nword.word = c.getString(2);
+                        nword.hiragana = c.getString(3);
+                        nword.korean = c.getString(4);
+                        nword.korean2 = c.getString(5);
+
+                        //ArrayList에 추가합니다..
+                        array.add(nword);
+
+                    } while (c.moveToNext());
+                }
+            }
+            c.close();
+        } catch (SQLiteException se) {
+            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("",  se.getMessage());
+            ((MainActivity)context).finish();
+        }
+        return array;
+    }
+
     public void listRefrash() {
         //adapter 지우기
         m_Adapter.initList();
