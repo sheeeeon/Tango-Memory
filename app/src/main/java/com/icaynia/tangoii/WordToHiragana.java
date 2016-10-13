@@ -18,6 +18,7 @@ public class WordToHiragana extends AppCompatActivity {
     private int errorcount = 0;
     private TextView wordvu;
     private TextView hiraganavu;
+    private TextView errorcountvu;
     private EditText input;
     private Button input_submit;
     private wordManager mWordManager;
@@ -25,6 +26,7 @@ public class WordToHiragana extends AppCompatActivity {
     private ArrayList<word> words;
     private word mword;
     private Handler mHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +43,18 @@ public class WordToHiragana extends AppCompatActivity {
         hiraganavu = (TextView) findViewById(R.id.hiraganavu);
         input = (EditText) findViewById(R.id.input);
         input_submit = (Button) findViewById(R.id.input_submit);
-
+        errorcountvu = (TextView) findViewById(R.id.errorcount);
         oRandom = new Random();
         words = mWordManager.getWordAll();
-
         mHandler = new Handler();
+
 
 
     }
 
     private void game() {
         int randint;
+        errorcountvu.setText("Life = " + (3-errorcount));
         while (true) {
             randint = rand(words.size()-1);
             mword = words.get(randint);
@@ -68,18 +71,19 @@ public class WordToHiragana extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (input.getText().toString().equals(mword.hiragana)) {
+                    hiraganavu.setText("");
                     mWordManager.addPassCount(r_id);
                     errorcount = 0;
                     input.setText("");
                     game();
                 } else {
                     errorcount++;
+                    errorcountvu.setText("Life = " + (3-errorcount));
                     if (errorcount >= 3) {
-
-                        hiraganavu.setText(mword.hiragana);
                         errorcount = 0;
-                        customThread mThread = new customThread();
-                        mThread.run();
+                        hiraganavu.setText(mword.word+" = "+mword.hiragana);
+                        input.setText("");
+                        game();
                     }
                 }
             }
@@ -118,7 +122,7 @@ public class WordToHiragana extends AppCompatActivity {
         public void run() {
             super.run();
             try {
-                Thread.sleep(1000);
+                customThread.sleep(1000);
             } catch (InterruptedException e){
                 e.printStackTrace();
             }
