@@ -3,6 +3,7 @@ package com.icaynia.tangoii;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,16 +41,20 @@ public class WordToHiragana extends AppCompatActivity {
     }
 
     private void game() {
-        int randint = rand(words.size()-1);
-
+        //int randint = rand(words.size());
+        int randint = words.size();
         word mword = words.get(randint);
         wordvu.setText(mword.word);
+
+        mWordManager.addCount(mword.id);
+
+        Log.e("count", "showcount = "+mword.showcount);
 
 
     }
 
     private int rand(int max) {
-        int temp = oRandom.nextInt(max) + 1;
+        int temp = oRandom.nextInt(max);
         return temp;
     }
 

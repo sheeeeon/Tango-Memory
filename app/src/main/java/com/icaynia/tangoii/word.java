@@ -23,7 +23,7 @@ public class word {
     String        example4ko;
     String        example5;
     String        example5ko;
-    String        showcount;
+    int           showcount;
     String        passcount;
     String        regdate;
 

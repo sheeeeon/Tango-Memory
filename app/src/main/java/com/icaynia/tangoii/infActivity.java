@@ -12,6 +12,7 @@ public class infActivity extends AppCompatActivity {
     private TextView hiraganavu;
     private TextView wordvu;
     private TextView koreanvu;
+    private TextView count;
 
     private wordManager mWordManager;
 
@@ -33,6 +34,7 @@ public class infActivity extends AppCompatActivity {
             hiraganavu.setText(mword.hiragana);
             koreanvu.setText(mword.korean);
             wordvu.setText(mword.word);
+            count.setText(mword.passcount+"/" +mword.showcount);
         }
     }
 
@@ -40,6 +42,7 @@ public class infActivity extends AppCompatActivity {
         hiraganavu = (TextView) findViewById(R.id.hiraganavu);
         wordvu = (TextView) findViewById(R.id.wordvu);
         koreanvu = (TextView) findViewById(R.id.koreanvu);
+        count = (TextView) findViewById(R.id.count);
 
         mWordManager = new wordManager(this);
     }

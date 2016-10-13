@@ -86,7 +86,9 @@ public class wordManager {
             mword.word = result.getString(2);
             mword.hiragana = result.getString(3);
             mword.korean = result.getString(4);
- }
+            mword.showcount = result.getInt(result.getColumnIndex("showcount"));
+
+        }
         result.close();
 
         return mword;
@@ -96,6 +98,12 @@ public class wordManager {
         db.execSQL("INSERT INTO tangoii " +
                 "VALUES(null,null,'"+word+"','"+hiragana+"','"+korean+"',null,null,null,null,null,null,null,null,null,null,null,null,null,'"+today+"');"
         );
+    }
+
+    public void addCount(int id) {
+        int count = this.getWord(id).showcount;
+        count++;
+        db.execSQL("UPDATE tangoii SET showcount = '"+count+"' WHERE id = '"+id+"';");
     }
 
     public int getWordRows() {
@@ -133,6 +141,7 @@ public class wordManager {
                         nword.hiragana = c.getString(3);
                         nword.korean = c.getString(4);
                         nword.korean2 = c.getString(5);
+                        nword.showcount = c.getInt(c.getColumnIndex("showcount"));
 
                         //ArrayList에 추가합니다..
                         array.add(nword);
@@ -165,6 +174,8 @@ public class wordManager {
                         nword.hiragana = c.getString(3);
                         nword.korean = c.getString(4);
                         nword.korean2 = c.getString(5);
+                        nword.showcount = c.getInt(c.getColumnIndex("showcount"));
+
 
                         m_Adapter.add(nword.word+"", nword.hiragana+"", nword.korean+"");
 
