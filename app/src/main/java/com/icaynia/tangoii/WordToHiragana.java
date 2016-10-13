@@ -41,8 +41,17 @@ public class WordToHiragana extends AppCompatActivity {
     }
 
     private void game() {
-        int randint = rand(words.size()-1);
-        word mword = words.get(randint);
+        int randint;
+        word mword;
+        while (true) {
+
+            randint = rand(words.size()-1);
+            mword = words.get(randint);
+            if (isKanji(mword.word)) {
+                break;
+            }
+        }
+
         wordvu.setText(mword.word);
 
         mWordManager.addCount(mword.id);
@@ -56,6 +65,24 @@ public class WordToHiragana extends AppCompatActivity {
         int temp = oRandom.nextInt(max);
         return temp;
     }
+
+    public static boolean isKanji(String str)
+    {
+        for(int i = 0 ; i < str.length() ; i++)
+        {
+            char ch = str.charAt(i);
+            Character.UnicodeBlock unicodeBlock = Character.UnicodeBlock.of(ch);
+            if(
+                    Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS.equals(unicodeBlock) ||
+                    Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A.equals(unicodeBlock) ||
+                    Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B.equals(unicodeBlock) ||
+                    Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS.equals(unicodeBlock) ||
+                    Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT.equals(unicodeBlock)
+            ) return true;
+        }
+        return false;
+    }
+
 
 
 
