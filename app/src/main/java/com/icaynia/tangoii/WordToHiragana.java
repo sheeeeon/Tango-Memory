@@ -28,6 +28,7 @@ public class WordToHiragana extends AppCompatActivity {
     private word mword;
     private Handler mHandler;
     private word previousword = new word();
+    private customThread mThread = new customThread();
 
 
     @Override
@@ -50,8 +51,10 @@ public class WordToHiragana extends AppCompatActivity {
         giveupvu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                giveupvu.setVisibility(View.GONE);
                 errorcount = 3;
                 input_submit.callOnClick();
+                mThread.run();
             }
         });
         oRandom = new Random();
@@ -95,7 +98,7 @@ public class WordToHiragana extends AppCompatActivity {
                     errorcountvu.setText("Life = " + (3-errorcount));
                     if (errorcount >= 3) {
                         errorcount = 0;
-                        hiraganavu.setText(mword.word+" = "+mword.hiragana);
+                        hiraganavu.setText(mword.word+"["+mword.hiragana+"] "+mword.korean);
                         input.setText("");
                         game();
                     }
@@ -135,18 +138,14 @@ public class WordToHiragana extends AppCompatActivity {
         @Override
         public void run() {
             super.run();
-            try {
-                customThread.sleep(1000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
 
-            mHandler.post(new Runnable() {
+
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    game();
+                    giveupvu.setVisibility(View.VISIBLE);
                 }
-            });
+            }, 1000);
 
         }
 

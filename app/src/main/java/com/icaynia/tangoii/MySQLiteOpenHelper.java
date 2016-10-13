@@ -42,6 +42,17 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 " regdate date" +
                 "  );";
         db.execSQL(sql);
+        sql = "create table ti_game(" +
+                " id integer primary key autoincrement," +
+                " game_category text," +
+                " game_count integer," +
+                " word_showcount integer," +
+                " word_passcount integer," +
+                " time_start datetime" +
+                " time_end datetime" +
+                "  );";
+
+        db.execSQL(sql);
     }
 
     @Override
