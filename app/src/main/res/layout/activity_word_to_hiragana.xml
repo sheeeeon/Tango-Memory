@@ -87,7 +87,6 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="input"
                     android:textSize="22dp"
                     android:gravity="top|center_vertical|center"
                     android:id="@+id/input"
@@ -101,10 +100,10 @@
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="New Button"
                     android:id="@+id/input_submit"
                     android:layout_weight="3"
-                    android:layout_marginRight="20dp" />
+                    android:layout_marginRight="20dp"
+                    android:text="OK" />
 
             </LinearLayout>
         </LinearLayout>
