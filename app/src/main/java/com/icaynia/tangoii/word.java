@@ -24,7 +24,7 @@ public class word {
     String        example5;
     String        example5ko;
     int           showcount;
-    String        passcount;
+    int           passcount;
     String        regdate;
 
     public word() {

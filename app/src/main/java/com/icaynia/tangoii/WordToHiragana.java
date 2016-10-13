@@ -1,9 +1,11 @@
 package com.icaynia.tangoii;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,12 +15,16 @@ import java.util.Random;
 
 public class WordToHiragana extends AppCompatActivity {
     private int count = 0;
+    private int errorcount = 0;
     private TextView wordvu;
+    private TextView hiraganavu;
     private EditText input;
     private Button input_submit;
     private wordManager mWordManager;
     private Random oRandom;
     private ArrayList<word> words;
+    private word mword;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,32 +38,52 @@ public class WordToHiragana extends AppCompatActivity {
     private void init() {
         mWordManager = new wordManager(this);
         wordvu = (TextView) findViewById(R.id.wordvu);
+        hiraganavu = (TextView) findViewById(R.id.hiraganavu);
         input = (EditText) findViewById(R.id.input);
         input_submit = (Button) findViewById(R.id.input_submit);
 
         oRandom = new Random();
         words = mWordManager.getWordAll();
 
+        mHandler = new Handler();
+
+
     }
 
     private void game() {
         int randint;
-        word mword;
         while (true) {
-
             randint = rand(words.size()-1);
             mword = words.get(randint);
             if (isKanji(mword.word)) {
                 break;
             }
         }
-
+        final int r_id = mword.id;
         wordvu.setText(mword.word);
-
-        mWordManager.addCount(mword.id);
+        mWordManager.addCount(r_id);
 
         Log.e("count", "showcount = "+mword.showcount);
+        input_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (input.getText().toString().equals(mword.hiragana)) {
+                    mWordManager.addPassCount(r_id);
+                    errorcount = 0;
+                    input.setText("");
+                    game();
+                } else {
+                    errorcount++;
+                    if (errorcount >= 3) {
 
+                        hiraganavu.setText(mword.hiragana);
+                        errorcount = 0;
+                        customThread mThread = new customThread();
+                        mThread.run();
+                    }
+                }
+            }
+        });
 
     }
 
@@ -83,7 +109,30 @@ public class WordToHiragana extends AppCompatActivity {
         return false;
     }
 
+    private class customThread extends Thread {
 
+        public customThread() {
+        }
+
+        @Override
+        public void run() {
+            super.run();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    game();
+                }
+            });
+
+        }
+
+    }
 
 
 }

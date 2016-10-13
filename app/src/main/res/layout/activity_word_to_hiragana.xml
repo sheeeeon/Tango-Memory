@@ -42,8 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="14dp"
-                    android:gravity="bottom|center"
-                    android:id="@+id/hiraganavu"/>
+                    android:id="@+id/hiraganavu"
+                    android:text="bbb" />
             </LinearLayout>
 
             <LinearLayout

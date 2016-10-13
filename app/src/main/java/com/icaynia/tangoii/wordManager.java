@@ -94,6 +94,7 @@ public class wordManager {
             mword.hiragana = result.getString(3);
             mword.korean = result.getString(4);
             mword.showcount = result.getInt(result.getColumnIndex("showcount"));
+            mword.passcount = result.getInt(result.getColumnIndex("passcount"));
 
         }
         result.close();
@@ -111,6 +112,12 @@ public class wordManager {
         int count = this.getWord(id).showcount;
         count++;
         db.execSQL("UPDATE tangoii SET showcount = '"+count+"' WHERE id = '"+id+"';");
+    }
+
+    public void addPassCount(int id) {
+        int count = this.getWord(id).passcount;
+        count++;
+        db.execSQL("UPDATE tangoii SET passcount = '"+count+"' WHERE id = '"+id+"';");
     }
 
     public int getWordRows() {
