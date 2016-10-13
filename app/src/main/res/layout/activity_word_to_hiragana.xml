@@ -87,7 +87,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="22dp"
+                    android:textSize="16dp"
                     android:gravity="top|center_vertical|center"
                     android:id="@+id/input"
                     android:paddingLeft="50dp"
