@@ -41,8 +41,7 @@ public class WordToHiragana extends AppCompatActivity {
     }
 
     private void game() {
-        //int randint = rand(words.size());
-        int randint = words.size();
+        int randint = rand(words.size()-1);
         word mword = words.get(randint);
         wordvu.setText(mword.word);
 
