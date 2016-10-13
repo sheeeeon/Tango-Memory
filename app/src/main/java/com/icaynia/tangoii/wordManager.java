@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
@@ -20,7 +22,7 @@ import java.util.Locale;
 public class wordManager {
 
     String today = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
-
+    String yesterday;
     private MySQLiteOpenHelper helper;
     String dbName = "tangoii.db";
     int dbVersion = 1; // 데이터베이스 버전
@@ -60,6 +62,11 @@ public class wordManager {
             Log.e(tag, "데이터베이스를 얻어올 수 없음");
             ((MainActivity)context).finish(); // 액티비티 종료
         }
+
+        Calendar cal = new GregorianCalendar(Locale.KOREA);
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -1);
+        yesterday = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(cal.getTime());
     }
 
     public void connectAdapter(View fv) {
@@ -118,6 +125,17 @@ public class wordManager {
 
     public int getWordRowsToday() {
         String sql = "SELECT * FROM tangoii where regdate = '"+today+"'";
+
+        Cursor result = db.rawQuery(sql, null);
+
+        int rows = result.getCount();
+
+        return rows;
+    }
+
+    public int getWordRowsYesterday() {
+
+        String sql = "SELECT * FROM tangoii where regdate = '"+yesterday+"'";
 
         Cursor result = db.rawQuery(sql, null);
 

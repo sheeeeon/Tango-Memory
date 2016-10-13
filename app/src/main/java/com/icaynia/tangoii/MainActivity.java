@@ -268,6 +268,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView todayWordcountTv = (TextView) v.findViewById(R.id.todayWordcountTv);
         todayWordcountTv.setText(mWordManager.getWordRowsToday()+"");
+
+        TextView yesterdayWordcountTv = (TextView) v.findViewById(R.id.yesterdayWordcountTv);
+        yesterdayWordcountTv.setText(mWordManager.getWordRowsYesterday()+"");
     }
 
     public void onFragment2(View v) {
