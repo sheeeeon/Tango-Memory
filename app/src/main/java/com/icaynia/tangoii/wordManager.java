@@ -41,26 +41,19 @@ public class wordManager {
         context = _context;
         wordList = new ArrayList<word>();
         helper = new MySQLiteOpenHelper(
-                context,    // 현재 화면의 제어권자
-                dbName,     // db 이름
-                null,       // 커서팩토리-null : 표준커서가 사용됨
-                dbVersion); // 버전
+                context,
+                dbName,
+                null,
+                dbVersion);
 
         try {
-//         // 데이터베이스 객체를 얻어오는 다른 간단한 방법
-//         db = openOrCreateDatabase(dbName,  // 데이터베이스파일 이름
-//                          Context.MODE_PRIVATE, // 파일 모드
-//                          null);    // 커서 팩토리
-//
-//         String sql = "create table mytable(id integer primary key autoincrement, name text);";
-//        db.execSQL(sql);
 
             db = helper.getWritableDatabase(); // 읽고 쓸수 있는 DB
             //db = helper.getReadableDatabase(); // 읽기 전용 DB select문
         } catch (SQLiteException e) {
             e.printStackTrace();
             Log.e(tag, "데이터베이스를 얻어올 수 없음");
-            ((MainActivity)context).finish(); // 액티비티 종료
+            ((MainActivity)context).finish();
         }
 
         Calendar cal = new GregorianCalendar(Locale.KOREA);
@@ -70,11 +63,8 @@ public class wordManager {
     }
 
     public void connectAdapter(View fv) {
-        // 커스텀 어댑터 생성
         m_Adapter = new wordAdapter();
-        // Xml에서 추가한 ListView 연결
         m_ListView = (ListView) fv.findViewById(R.id.wordlistview);
-        // ListView에 어댑터 연결
         m_ListView.setAdapter(m_Adapter);
 
         this.listRefrash();
