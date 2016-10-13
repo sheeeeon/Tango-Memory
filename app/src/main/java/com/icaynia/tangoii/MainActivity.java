@@ -347,11 +347,17 @@ public class MainActivity extends AppCompatActivity {
         final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
         final EditText et_word = (EditText) dialogV.findViewById(R.id.et_word);
+        final TextView warning = (TextView) dialogV.findViewById(R.id.warning);
         et_word.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    Log.e("onFocusChange","no");
+                    if (mWordManager.isAlreadyUsed(et_word.getText().toString())) {
+                        warning.setText("This word is already used.");
+                        Log.e("onFocusChange","used");
+                    } else {
+                        warning.setText("");
+                    }
                 }
             }
         });

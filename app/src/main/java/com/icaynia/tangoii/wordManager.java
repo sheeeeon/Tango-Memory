@@ -123,6 +123,35 @@ public class wordManager {
         return rows;
     }
 
+    public boolean isAlreadyUsed(String wor) {
+        boolean b = false;
+        if (wordList.size() == 0) {
+            wordList = getWordAll();
+        }
+        try {
+            //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
+            Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
+            if (c != null) {
+                if (c.moveToFirst()) {
+                    do {
+                        word nword = new word();
+                        nword.word = c.getString(2);
+                        if (nword.word.equals(wor)) {
+                            b = true;
+                        }
+
+                    } while (c.moveToNext());
+                }
+            }
+            c.close();
+        } catch (SQLiteException se) {
+            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("",  se.getMessage());
+            ((MainActivity)context).finish();
+        }
+        return b;
+    }
+
     public int getWordRowsToday() {
         String sql = "SELECT * FROM tangoii where regdate = '"+today+"'";
 
