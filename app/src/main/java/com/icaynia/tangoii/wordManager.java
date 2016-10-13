@@ -25,7 +25,7 @@ public class wordManager {
     String yesterday;
     private MySQLiteOpenHelper helper;
     String dbName = "tangoii.db";
-    int dbVersion = 1; // 데이터베이스 버전
+    int dbVersion = 2; // 데이터베이스 버전
     private SQLiteDatabase db;
     String tag = "SQLite"; // Log 에 사용할 tag
     Context context;
