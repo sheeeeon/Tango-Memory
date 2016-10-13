@@ -367,11 +367,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 EditText et_hiragana = (EditText) dialogV.findViewById(R.id.et_hiragana);
                 EditText et_korean = (EditText) dialogV.findViewById(R.id.et_korean);
-                if (!et_word.getText().toString().isEmpty())
+                if (!et_word.getText().toString().isEmpty() && !mWordManager.isAlreadyUsed(et_word.getText().toString())) {
                     mWordManager.addWord(et_word.getText().toString(), et_hiragana.getText().toString(), et_korean.getText().toString());
+                    mWordManager.listRefrash();
+                    dialog.dismiss();
+                }
 
-                mWordManager.listRefrash();
-                dialog.dismiss();
+
             }
         });
         builder.setCancelable(false);
