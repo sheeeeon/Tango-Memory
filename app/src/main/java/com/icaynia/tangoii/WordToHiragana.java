@@ -20,12 +20,14 @@ public class WordToHiragana extends AppCompatActivity {
     private TextView hiraganavu;
     private TextView errorcountvu;
     private EditText input;
+    private TextView giveupvu;
     private Button input_submit;
     private wordManager mWordManager;
     private Random oRandom;
     private ArrayList<word> words;
     private word mword;
     private Handler mHandler;
+    private word previousword = new word();
 
 
     @Override
@@ -44,6 +46,14 @@ public class WordToHiragana extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         input_submit = (Button) findViewById(R.id.input_submit);
         errorcountvu = (TextView) findViewById(R.id.errorcount);
+        giveupvu = (TextView) findViewById(R.id.giveup);
+        giveupvu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                errorcount = 3;
+                input_submit.callOnClick();
+            }
+        });
         oRandom = new Random();
         words = mWordManager.getWordAll();
         mHandler = new Handler();
@@ -59,8 +69,12 @@ public class WordToHiragana extends AppCompatActivity {
             randint = rand(words.size()-1);
             mword = words.get(randint);
             if (isKanji(mword.word)) {
-                break;
+                if (!mword.word.equals(previousword.word) || previousword.word.equals("")) {
+                    previousword = mword;
+                    break;
+                }
             }
+
         }
         final int r_id = mword.id;
         wordvu.setText(mword.word);
