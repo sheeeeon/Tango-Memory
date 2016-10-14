@@ -100,9 +100,9 @@ public class wordManager {
 
     public void updateWord(int id, String word, String hiragana, String korean) {
         db.execSQL("UPDATE tangoii SET " +
-                "update word = '"+word+"', " +
-                "update hiragana = '"+hiragana+"', " +
-                "update korean = '"+korean+"' " +
+                "word = '"+word+"', " +
+                "hiragana = '"+hiragana+"', " +
+                "korean = '"+korean+"' " +
                 "WHERE 'id' = '"+id+"';");
     }
 

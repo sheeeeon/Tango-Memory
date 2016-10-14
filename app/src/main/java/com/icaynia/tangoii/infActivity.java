@@ -18,7 +18,10 @@ public class infActivity extends AppCompatActivity {
     private TextView wordvu;
     private TextView koreanvu;
     private TextView count;
+    private TextView editwordVu;
     private View dialogV;
+    private int no;
+    private word mword;
 
     private wordManager mWordManager;
 
@@ -29,12 +32,11 @@ public class infActivity extends AppCompatActivity {
         this.init();
 
         Intent intent = getIntent();
-        int no = intent.getIntExtra("no", 0);
+        no = intent.getIntExtra("no", 0);
 
         //Toast.makeText(this, "no="+no, Toast.LENGTH_SHORT).show();
 
         if (no != 0) {
-            word mword;
             mword = mWordManager.getWord(no);
 
             hiraganavu.setText(mword.hiragana);
@@ -49,6 +51,14 @@ public class infActivity extends AppCompatActivity {
         wordvu = (TextView) findViewById(R.id.wordvu);
         koreanvu = (TextView) findViewById(R.id.koreanvu);
         count = (TextView) findViewById(R.id.count);
+        editwordVu = (TextView) findViewById(R.id.editWordView);
+        editwordVu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onEditwordDialog();
+            }
+        });
+
 
         mWordManager = new wordManager(this);
     }
@@ -64,16 +74,16 @@ public class infActivity extends AppCompatActivity {
 
     }
 
-    public void onEditwordDialog(final word beforeWord) {
+    public void onEditwordDialog() {
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
         final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
         final EditText et_word = (EditText) dialogV.findViewById(R.id.et_word);
-        et_word.setText(beforeWord.word);
+        et_word.setText(mword.word);
         final EditText et_hiragana = (EditText) dialogV.findViewById(R.id.et_hiragana);
-        et_hiragana.setText(beforeWord.hiragana);
+        et_hiragana.setText(mword.hiragana);
         final EditText et_korean = (EditText) dialogV.findViewById(R.id.et_korean);
-        et_korean.setText(beforeWord.korean);
+        et_korean.setText(mword.korean);
         final TextView warning = (TextView) dialogV.findViewById(R.id.warning);
 
 
@@ -91,12 +101,12 @@ public class infActivity extends AppCompatActivity {
             }
         });
 
-        builder.setTitle("단어 추가하기");
+        builder.setTitle("단어 편집하기");
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (!et_word.getText().toString().isEmpty() && !mWordManager.isAlreadyUsed(et_word.getText().toString())) {
-                    mWordManager.updateWord(beforeWord.id, et_word.getText().toString(), et_hiragana.getText().toString(), et_korean.getText().toString());
+                if (!et_word.getText().toString().isEmpty()) {
+                    mWordManager.updateWord(mword.id, et_word.getText().toString(), et_hiragana.getText().toString(), et_korean.getText().toString());
                     mWordManager.listRefrash();
                     dialog.dismiss();
                 }
