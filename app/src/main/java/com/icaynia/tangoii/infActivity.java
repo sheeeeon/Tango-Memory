@@ -86,34 +86,17 @@ public class infActivity extends AppCompatActivity {
         et_korean.setText(mword.korean);
         final TextView warning = (TextView) dialogV.findViewById(R.id.warning);
 
-
-        et_word.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    if (mWordManager.isAlreadyUsed(et_word.getText().toString())) {
-                        warning.setText("This word is already used.");
-                        Log.e("onFocusChange","used");
-                    } else {
-                        warning.setText("");
-                    }
-                }
-            }
-        });
-
         builder.setTitle("단어 편집하기");
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (!et_word.getText().toString().isEmpty()) {
                     mWordManager.updateWord(mword.id, et_word.getText().toString(), et_hiragana.getText().toString(), et_korean.getText().toString());
-                    mWordManager.listRefrash();
                     dialog.dismiss();
                 }
-
-
             }
         });
+
         builder.setCancelable(false);
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
             @Override
