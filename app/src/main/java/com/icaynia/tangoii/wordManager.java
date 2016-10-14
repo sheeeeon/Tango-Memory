@@ -94,9 +94,18 @@ public class wordManager {
 
     public void addWord(String word, String hiragana, String korean) {
         db.execSQL("INSERT INTO tangoii " +
-                "VALUES(null,null,'"+word+"','"+hiragana+"','"+korean+"',null,null,null,null,null,null,null,null,null,null,null,null,null,'"+today+"');"
+                "VALUES(null,null,'"+word+"','"+hiragana+"','"+korean+"',null,null,null,null,null,null,null,null,null,null,null,0,0,'"+today+"');"
         );
     }
+
+    public void updateWord(int id, String word, String hiragana, String korean) {
+        db.execSQL("UPDATE tangoii SET " +
+                "update word = '"+word+"', " +
+                "update hiragana = '"+hiragana+"', " +
+                "update korean = '"+korean+"' " +
+                "WHERE 'id' = '"+id+"';");
+    }
+
 
     public void addCount(int id) {
         int count = this.getWord(id).showcount;

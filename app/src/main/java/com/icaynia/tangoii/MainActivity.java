@@ -287,7 +287,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onFragment2(View v) {
         mWordManager.connectAdapter(v);
-        mWordManager.getWord(2);
+        word mword = new word();
+        mword = mWordManager.getWord(3);
+
 
     }
 
