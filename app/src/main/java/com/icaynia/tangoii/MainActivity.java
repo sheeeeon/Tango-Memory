@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView searchcanceltv;
     private View dialogV;
 
+    private int wordRows;
+    private int wordRowsToday;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        wordRows = mWordManager.getWordRows();
+        wordRowsToday = mWordManager.getWordRowsToday();
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -89,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
                     onAddwordbutton(false);
                     onSearchButton(false);
                 }
+
+                wordRows = mWordManager.getWordRows();
+                wordRowsToday = mWordManager.getWordRowsToday();
 
             }
 
@@ -130,6 +138,10 @@ public class MainActivity extends AppCompatActivity {
                 onSearchButton(true);
             }
         });
+
+        onAddwordbutton(false);
+        onSearchButton(false);
+
 
 
     }
@@ -264,10 +276,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onFragment1(View v) {
         TextView wordcountTv = (TextView) v.findViewById(R.id.wordcountTv);
-        wordcountTv.setText(mWordManager.getWordRows()+"");
+        wordcountTv.setText(wordRows+"");
 
         TextView todayWordcountTv = (TextView) v.findViewById(R.id.todayWordcountTv);
-        todayWordcountTv.setText(mWordManager.getWordRowsToday()+"");
+        todayWordcountTv.setText(wordRowsToday+"");
 
         TextView yesterdayWordcountTv = (TextView) v.findViewById(R.id.yesterdayWordcountTv);
         yesterdayWordcountTv.setText(mWordManager.getWordRowsYesterday()+"");
@@ -284,13 +296,13 @@ public class MainActivity extends AppCompatActivity {
         kanjiToHiraganaMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 onWordToHiragana();
             }
         });
     }
 
     public void onWordToHiragana() {
-
         Intent intent = new Intent(this, WordToHiragana.class);
         startActivity(intent);
     }

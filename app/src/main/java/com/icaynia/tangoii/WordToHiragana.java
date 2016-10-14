@@ -36,8 +36,12 @@ public class WordToHiragana extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_to_hiragana);
         this.init();
+        if (words.size() > 0) {
+            game();
+        } else {
+            finish();
 
-        game();
+        }
     }
 
     private void init() {
@@ -69,7 +73,7 @@ public class WordToHiragana extends AppCompatActivity {
         int randint;
         errorcountvu.setText("Life = " + (3-errorcount));
         while (true) {
-            randint = rand(words.size()-1);
+            randint = rand(words.size());
             mword = words.get(randint);
             if (isKanji(mword.word)) {
                 if (!mword.word.equals(previousword.word) || previousword.word.equals("")) {
@@ -110,6 +114,9 @@ public class WordToHiragana extends AppCompatActivity {
 
     private int rand(int max) {
         int temp = oRandom.nextInt(max);
+        if (temp <= 0) {
+            temp = -temp +1;
+        }
         return temp;
     }
 
