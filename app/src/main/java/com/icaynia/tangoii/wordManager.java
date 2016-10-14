@@ -103,7 +103,7 @@ public class wordManager {
                 "word = '"+word+"', " +
                 "hiragana = '"+hiragana+"', " +
                 "korean = '"+korean+"' " +
-                "WHERE 'id' = '"+id+"';");
+                "WHERE id = '"+id+"';");
     }
 
 
