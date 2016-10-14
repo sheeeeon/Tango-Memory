@@ -180,6 +180,23 @@ public class wordManager {
 
     }
 
+    public boolean isLowCorrectPercentage (word mword) {
+        if (getCorrectPercentage(mword) < 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int getCorrectPercentage(word mword) {
+        int cutPercentLine = 20;         // max is 100.
+        int showcount = mword.showcount;
+        int passcount = mword.passcount;
+
+        return showcount/passcount * 100;
+
+    }
+
     public ArrayList<word> getWordAll() {
         ArrayList<word> array = new ArrayList<word>();
         try {
