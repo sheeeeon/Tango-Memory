@@ -42,7 +42,7 @@ public class infActivity extends AppCompatActivity {
             hiraganavu.setText(mword.hiragana);
             koreanvu.setText(mword.korean);
             wordvu.setText(mword.word);
-            count.setText(mword.passcount+"/" +mword.showcount);
+            count.setText(mword.passcount+"/"+mword.showcount+" %");
         }
     }
 

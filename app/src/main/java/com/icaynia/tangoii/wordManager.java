@@ -177,7 +177,6 @@ public class wordManager {
         int rows = result.getCount();
 
         return rows;
-
     }
 
     public boolean isLowCorrectPercentage (word mword) {
@@ -189,11 +188,10 @@ public class wordManager {
     }
 
     public int getCorrectPercentage(word mword) {
-        int cutPercentLine = 20;         // max is 100.
         int showcount = mword.showcount;
         int passcount = mword.passcount;
 
-        return showcount/passcount * 100;
+        return passcount/showcount * 100;
 
     }
 
