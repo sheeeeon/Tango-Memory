@@ -197,6 +197,18 @@ public class wordManager {
 
     }
 
+    public void listRefrash() {
+        //adapter 지우기
+        m_Adapter.initList();
+
+        wordList = getWordAll();
+
+        for (int i = 0; i < wordList.size(); i++) {
+            m_Adapter.add(wordList.get(i).word+"", wordList.get(i).hiragana+"", wordList.get(i).korean+"");
+        }
+
+    }
+
     public ArrayList<word> getWordAll() {
         ArrayList<word> array = new ArrayList<word>();
         try {
@@ -228,40 +240,7 @@ public class wordManager {
         return array;
     }
 
-    public void listRefrash() {
-        //adapter 지우기
-        m_Adapter.initList();
 
-        try {
-            //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
-            Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
-            if (c != null) {
-                if (c.moveToFirst()) {
-                    do {
-                        word nword = new word();
-                        nword.id = c.getInt(c.getColumnIndex("id"));
-                        nword.word = c.getString(2);
-                        nword.hiragana = c.getString(3);
-                        nword.korean = c.getString(4);
-                        nword.korean2 = c.getString(5);
-                        nword.showcount = c.getInt(c.getColumnIndex("showcount"));
-
-
-                        m_Adapter.add(nword.word+"", nword.hiragana+"", nword.korean+"");
-
-                        //ArrayList에 추가합니다..
-                        wordList.add(nword);
-
-                    } while (c.moveToNext());
-                }
-            }
-            c.close();
-        } catch (SQLiteException se) {
-            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("",  se.getMessage());
-        }
-
-    }
 
 }
 
