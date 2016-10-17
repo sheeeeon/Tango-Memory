@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".infActivity" />
-        <activity android:name=".WordToHiragana"></activity>
+        <activity android:name=".WordToHiragana"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
