@@ -66,52 +66,12 @@ public class logManager {
         endTime = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS", Locale.KOREA).format(new Date());
     }
 
-    public void addlog(int id) {
+    public void addlog() {
         db.execSQL("INSERT INTO ti_game " +
                 "VALUES(null, " +
                 "'" + gameName + "',null," +
                 "'" + showCount + "','" + passCount + "'," +
                 "'" + startTime + "','" + endTime + "');"
         );
-    }
-
-    public word getWord(int index) {
-        String sql = "select * from ti_game where id = " + index + ";";
-        Cursor result = db.rawQuery(sql, null);
-
-        word mword = new word();
-
-        // result(Cursor 객체)가 비어 있으면 false 리턴
-        if (result.moveToFirst()) {
-            mword.id = result.getInt(0);
-            mword.word = result.getString(2);
-            mword.hiragana = result.getString(3);
-            mword.korean = result.getString(4);
-            mword.showcount = result.getInt(result.getColumnIndex("showcount"));
-            mword.passcount = result.getInt(result.getColumnIndex("passcount"));
-
-        }
-        result.close();
-
-        return mword;
-    }
-
-    public int getPlayTime() {
-
-        String sql = "select * from ti_game;";
-        Cursor result = db.rawQuery(sql, null);
-
-        if (result.moveToFirst()) {
-            /*
-            mword.id = result.getInt(0);
-            mword.word = result.getString(2);
-            mword.hiragana = result.getString(3);
-            mword.korean = result.getString(4);
-            mword.showcount = result.getInt(result.getColumnIndex("showcount"));
-            mword.passcount = result.getInt(result.getColumnIndex("passcount"));
-            */
-
-        }
-        return 0;
     }
 }

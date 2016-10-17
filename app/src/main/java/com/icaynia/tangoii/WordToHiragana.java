@@ -46,6 +46,14 @@ public class WordToHiragana extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        mLogManager.timeEnd();
+        super.onStop();
+        mLogManager.addlog();
+
+    }
+
     private void init() {
         mWordManager = new wordManager(this);
         wordvu = (TextView) findViewById(R.id.wordvu);
@@ -66,15 +74,19 @@ public class WordToHiragana extends AppCompatActivity {
         oRandom = new Random();
         words = mWordManager.getWordAll();
         mHandler = new Handler();
+        log_init();
 
     }
 
     private void log_init() {
         mLogManager = new logManager(this);
         mLogManager.setGameName("WordToHiragana");
+        mLogManager.timeStart();
     }
 
     private void game() {
+        mLogManager.addShowCount();
+        count++;
         int randint;
         errorcountvu.setText("Life = " + (3-errorcount));
         while (true) {
@@ -86,7 +98,6 @@ public class WordToHiragana extends AppCompatActivity {
                     break;
                 }
             }
-
         }
         final int r_id = mword.id;
         wordvu.setText(mword.word);
@@ -97,6 +108,7 @@ public class WordToHiragana extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (input.getText().toString().equals(mword.hiragana)) {
+                    mLogManager.addPassCount();
                     hiraganavu.setText(mword.word+"["+mword.hiragana+"] "+mword.korean);
                     mWordManager.addPassCount(r_id);
                     errorcount = 0;
