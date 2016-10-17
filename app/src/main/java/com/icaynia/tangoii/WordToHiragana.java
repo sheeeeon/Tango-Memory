@@ -112,6 +112,7 @@ public class WordToHiragana extends AppCompatActivity {
                     mLogManager.addPassCount();
                     hiraganavu.setText(mword.word+"["+mword.hiragana+"] "+mword.korean);
                     mWordManager.addPassCount(r_id);
+                    hiraganavu.setTextColor(getResources().getColor(android.R.color.black));
                     errorcount = 0;
                     input.setText("");
                     game();
