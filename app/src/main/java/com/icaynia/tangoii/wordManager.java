@@ -25,7 +25,7 @@ public class wordManager {
     String yesterday;
     private MySQLiteOpenHelper helper;
     String dbName = "tangoii.db";
-    int dbVersion = 2; // 데이터베이스 버전
+    int dbVersion = 6; // 데이터베이스 버전
     private SQLiteDatabase db;
     String tag = "SQLite"; // Log 에 사용할 tag
     Context context;
@@ -123,7 +123,6 @@ public class wordManager {
 
         String sql = "SELECT * FROM tangoii;";
         Cursor result = db.rawQuery(sql, null);
-
         int rows = result.getCount();
 
         return rows;
@@ -162,7 +161,6 @@ public class wordManager {
         String sql = "SELECT * FROM tangoii where regdate = '"+today+"'";
 
         Cursor result = db.rawQuery(sql, null);
-
         int rows = result.getCount();
 
         return rows;
@@ -212,6 +210,7 @@ public class wordManager {
         try {
             //SELECT문을 사용하여 테이블에 있는 데이터를 가져옵니다..
             Cursor c = db.rawQuery("SELECT * FROM tangoii", null);
+
             if (c != null) {
                 if (c.moveToFirst()) {
                     do {

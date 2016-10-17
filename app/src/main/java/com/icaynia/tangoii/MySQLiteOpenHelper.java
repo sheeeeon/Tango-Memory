@@ -49,7 +49,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
                 " game_count integer," +
                 " word_showcount integer," +
                 " word_passcount integer," +
-                " time_start datetime" +
+                " time_start datetime," +
                 " time_end datetime" +
                 "  );";
 
@@ -62,26 +62,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         switch (oldVersion) {
             case 1 :
-                try {
-                    db.beginTransaction();
-                    Log.e("e", "upgr");
-                    String sql = "create table ti_game(" +
-                            " id integer primary key autoincrement," +
-                            " game_category text," +
-                            " game_count integer," +
-                            " word_showcount integer," +
-                            " word_passcount integer," +
-                            " time_start datetime" +
-                            " time_end datetime" +
-                            "  );";
-
-                    db.execSQL(sql);
-                    db.setTransactionSuccessful();
-                } catch (IllegalStateException e) {
-                } finally {
-                    db.endTransaction();
-                };
-                break;
+            case 5 :
         }
     }
 }
