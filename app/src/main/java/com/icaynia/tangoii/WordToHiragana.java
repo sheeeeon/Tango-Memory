@@ -31,6 +31,8 @@ public class WordToHiragana extends AppCompatActivity {
     private customThread mThread = new customThread();
 
 
+    private logManager mLogManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +67,11 @@ public class WordToHiragana extends AppCompatActivity {
         words = mWordManager.getWordAll();
         mHandler = new Handler();
 
+    }
 
-
+    private void log_init() {
+        mLogManager = new logManager(this);
+        mLogManager.setGameName("WordToHiragana");
     }
 
     private void game() {
@@ -92,7 +97,7 @@ public class WordToHiragana extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (input.getText().toString().equals(mword.hiragana)) {
-                    hiraganavu.setText("");
+                    hiraganavu.setText(mword.word+"["+mword.hiragana+"] "+mword.korean);
                     mWordManager.addPassCount(r_id);
                     errorcount = 0;
                     input.setText("");
@@ -103,13 +108,13 @@ public class WordToHiragana extends AppCompatActivity {
                     if (errorcount >= 3) {
                         errorcount = 0;
                         hiraganavu.setText(mword.word+"["+mword.hiragana+"] "+mword.korean);
+                        hiraganavu.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
                         input.setText("");
                         game();
                     }
                 }
             }
         });
-
     }
 
     private int rand(int max) {
