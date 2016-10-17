@@ -74,4 +74,24 @@ public class logManager {
                 "'" + startTime + "','" + endTime + "');"
         );
     }
+    
+    public int getLog(int id) {
+
+        String sql = "select * from ti_game where id = '"+id+"';";
+        Cursor result = db.rawQuery(sql, null);
+
+        if (result.moveToFirst()) {
+            Log.e("gameLog", "id = "+result.getInt(0) + "category" + result.getString(1)+ "count" + result.getInt(2));
+            /*
+            mword.id = result.getInt(0);
+            mword.word = result.getString(2);
+            mword.hiragana = result.getString(3);
+            mword.korean = result.getString(4);
+            mword.showcount = result.getInt(result.getColumnIndex("showcount"));
+            mword.passcount = result.getInt(result.getColumnIndex("passcount"));
+            */
+
+        }
+        return 0;
+    }
 }
