@@ -74,7 +74,7 @@ public class logManager {
 
     public int getLog(int id) {
 
-        String sql = "select * from ti_game ;";
+        String sql = "select * from ti_game;";
         Cursor result = db.rawQuery(sql, null);
 
         if (result.moveToFirst()) {

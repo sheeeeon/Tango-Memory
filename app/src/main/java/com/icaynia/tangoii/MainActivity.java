@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if (position == 1) {
                     onAddwordbutton(true);
-                    onSearchButton(true);
+                    onSearchButton(false);
                 } else {
                     onAddwordbutton(false);
                     onSearchButton(false);
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 4;
+            return 3;
         }
 
         @Override
