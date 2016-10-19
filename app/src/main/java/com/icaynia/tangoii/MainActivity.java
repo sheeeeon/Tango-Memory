@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     public wordManager mWordManager;
+    public logManager mLogManager;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
 
         mWordManager = new wordManager(this);
+        mLogManager = new logManager(this);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -142,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         onAddwordbutton(false);
         onSearchButton(false);
 
-
+        mLogManager.getMinutes("2016-10-19");
 
     }
 

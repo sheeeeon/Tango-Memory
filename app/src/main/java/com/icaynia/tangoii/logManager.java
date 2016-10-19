@@ -59,11 +59,11 @@ public class logManager {
     }
 
     public void timeStart() {
-        startTime = new SimpleDateFormat("yyyy-MM-dd H:m:s", Locale.KOREA).format(new Date());
+        startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date());
     }
 
     public void timeEnd() {
-        endTime = new SimpleDateFormat("yyyy-MM-dd H:m:s", Locale.KOREA).format(new Date());
+        endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date());
     }
 
     public void addlog() {
@@ -99,4 +99,26 @@ public class logManager {
         }
         return 0;
     }
+
+    public int getMinutes(String day) {
+        String sql = "select * from ti_game";
+        Log.e("gg", sql);
+        Cursor result = db.rawQuery(sql,null);
+
+        if (result.moveToFirst()) {
+            do {
+
+                Log.e("gameLog", "id = " + result.getInt(0)
+                        + " category " + result.getString(1)
+                        + " count " + result.getInt(2)
+                        + " scount " + result.getInt(3)
+                        + " ocount " + result.getInt(4)
+                        + " start " + result.getString(5)
+                        + " end " + result.getString(6));
+            } while (result.moveToNext());
+        }
+        return 0;
+    }
+
+
 }
