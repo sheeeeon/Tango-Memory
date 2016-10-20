@@ -103,8 +103,9 @@ public class logManager {
         return 0;
     }
 
-    public int getMinutes(String day) {
+    public int getCount(String day) {
         String sql = "select * from ti_game where date(time_start) = '"+day+"'";
+        int cnt = 0;
         Log.e("gg", sql);
         Cursor result = db.rawQuery(sql,null);
 
@@ -117,12 +118,10 @@ public class logManager {
                         + " ocount " + result.getInt(4)
                         + " start " + result.getString(5)
                         + " end " + result.getString(6));
+                cnt += result.getInt(2);
             } while (result.moveToNext());
         }
-
-
-
-        return 0;
+        return cnt;
     }
 
 

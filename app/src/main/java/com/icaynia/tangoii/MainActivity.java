@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         onAddwordbutton(false);
         onSearchButton(false);
 
-        mLogManager.getMinutes("2016-10-19");
+        mLogManager.getCount("2016-10-19");
 
     }
 
