@@ -26,9 +26,11 @@ public class logManager {
     private int showCount = 0;
     private int passCount = 0;
 
+    SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" ,Locale.KOREA);
 
     String startTime;
     String endTime;
+    long Timesl;
 
     public logManager(Context _Context) {
         context = _Context;
@@ -59,11 +61,12 @@ public class logManager {
     }
 
     public void timeStart() {
-        startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date());
+        startTime = transFormat.format(new Date());
     }
 
     public void timeEnd() {
-        endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date());
+        endTime = transFormat.format(new Date());
+
     }
 
     public void addlog() {
@@ -101,13 +104,12 @@ public class logManager {
     }
 
     public int getMinutes(String day) {
-        String sql = "select * from ti_game";
+        String sql = "select * from ti_game where date(time_start) = '"+day+"'";
         Log.e("gg", sql);
         Cursor result = db.rawQuery(sql,null);
 
         if (result.moveToFirst()) {
             do {
-
                 Log.e("gameLog", "id = " + result.getInt(0)
                         + " category " + result.getString(1)
                         + " count " + result.getInt(2)
@@ -117,8 +119,13 @@ public class logManager {
                         + " end " + result.getString(6));
             } while (result.moveToNext());
         }
+
+
+
         return 0;
     }
+
+
 
 
 }
