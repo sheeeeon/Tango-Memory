@@ -33,6 +33,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -60,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
     private int wordRows;
     private int wordRowsToday;
+
+
+    SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd" , Locale.KOREA);
 
 
     @Override
@@ -144,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
         onAddwordbutton(false);
         onSearchButton(false);
 
-        mLogManager.getCount("2016-10-19");
 
     }
 
@@ -285,6 +291,13 @@ public class MainActivity extends AppCompatActivity {
 
         TextView yesterdayWordcountTv = (TextView) v.findViewById(R.id.yesterdayWordcountTv);
         yesterdayWordcountTv.setText(mWordManager.getWordRowsYesterday()+"");
+
+        TextView todayCountTv = (TextView) v.findViewById(R.id.TodayWordCount);
+        String now = transFormat.format(new Date()).toString();
+        todayCountTv.setText(mLogManager.getCount(now)+"");
+
+        TextView allCountTv = (TextView) v.findViewById(R.id.AllWordCount);
+        allCountTv.setText(mLogManager.getCount()+"");
     }
 
     public void onFragment2(View v) {

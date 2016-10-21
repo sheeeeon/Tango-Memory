@@ -111,7 +111,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4"
+                android:id="@+id/AllWordCount"
                 android:text="441"
                 android:textSize="40dp" />
         </LinearLayout>
@@ -125,14 +125,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5"
                 android:text="오늘의 게임 카운트" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:text="14"
+                android:id="@+id/TodayWordCount"
+                android:text="99"
                 android:textSize="40dp" />
         </LinearLayout>
 

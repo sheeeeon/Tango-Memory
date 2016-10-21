@@ -64,6 +64,7 @@ public class logManager {
         startTime = transFormat.format(new Date());
     }
 
+
     public void timeEnd() {
         endTime = transFormat.format(new Date());
 
@@ -118,7 +119,28 @@ public class logManager {
                         + " ocount " + result.getInt(4)
                         + " start " + result.getString(5)
                         + " end " + result.getString(6));
-                cnt += result.getInt(2);
+                cnt += result.getInt(3);
+            } while (result.moveToNext());
+        }
+        return cnt;
+    }
+
+    public int getCount() {
+        String sql = "select * from ti_game";
+        int cnt = 0;
+        Log.e("gg", sql);
+        Cursor result = db.rawQuery(sql,null);
+
+        if (result.moveToFirst()) {
+            do {
+                Log.e("gameLog", "id = " + result.getInt(0)
+                        + " category " + result.getString(1)
+                        + " count " + result.getInt(2)
+                        + " scount " + result.getInt(3)
+                        + " ocount " + result.getInt(4)
+                        + " start " + result.getString(5)
+                        + " end " + result.getString(6));
+                cnt += result.getInt(3);
             } while (result.moveToNext());
         }
         return cnt;
