@@ -76,7 +76,7 @@ public class logManager {
 
     }
 
-    public int getLog(int id) {
+    public int getLog() {
 
         String sql = "select * from ti_game;";
         Cursor result = db.rawQuery(sql, null);
@@ -90,14 +90,6 @@ public class logManager {
                         + " ocount " + result.getInt(4)
                         + " start " + result.getString(5)
                         + " end " + result.getString(6));
-            /*
-            mword.id = result.getInt(0);
-            mword.word = result.getString(2);
-            mword.hiragana = result.getString(3);
-            mword.korean = result.getString(4);
-            mword.showcount = result.getInt(result.getColumnIndex("showcount"));
-            mword.passcount = result.getInt(result.getColumnIndex("passcount"));
-            */
             } while (result.moveToNext());
 
         }
@@ -112,13 +104,6 @@ public class logManager {
 
         if (result.moveToFirst()) {
             do {
-                Log.e("gameLog", "id = " + result.getInt(0)
-                        + " category " + result.getString(1)
-                        + " count " + result.getInt(2)
-                        + " scount " + result.getInt(3)
-                        + " ocount " + result.getInt(4)
-                        + " start " + result.getString(5)
-                        + " end " + result.getString(6));
                 cnt += result.getInt(3);
             } while (result.moveToNext());
         }
@@ -128,18 +113,10 @@ public class logManager {
     public int getCount() {
         String sql = "select * from ti_game";
         int cnt = 0;
-        Log.e("gg", sql);
         Cursor result = db.rawQuery(sql,null);
 
         if (result.moveToFirst()) {
             do {
-                Log.e("gameLog", "id = " + result.getInt(0)
-                        + " category " + result.getString(1)
-                        + " count " + result.getInt(2)
-                        + " scount " + result.getInt(3)
-                        + " ocount " + result.getInt(4)
-                        + " start " + result.getString(5)
-                        + " end " + result.getString(6));
                 cnt += result.getInt(3);
             } while (result.moveToNext());
         }

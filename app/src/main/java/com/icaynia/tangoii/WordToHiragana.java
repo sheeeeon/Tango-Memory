@@ -75,7 +75,7 @@ public class WordToHiragana extends AppCompatActivity {
         words = mWordManager.getWordAll();
         mHandler = new Handler();
         log_init();
-        mLogManager.getLog(1);
+        mLogManager.getLog();
 
     }
 
