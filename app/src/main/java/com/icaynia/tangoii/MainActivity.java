@@ -365,12 +365,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-    public void makeToast(String str) {
-
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-    }
-
     public void onAddwordDialog() {
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
         final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this

@@ -86,22 +86,15 @@ public class WordToHiragana extends AppCompatActivity {
     }
 
     private void game() {
-        mLogManager.addShowCount();
         count++;
         int randint;
-        errorcountvu.setText("Life = " + (3-errorcount));
-        while (true) {
-            randint = rand(words.size());
-            mword = words.get(randint);
-            if (isKanji(mword.word)) {
-                if (!mword.word.equals(previousword.word) || previousword.word.equals("")) {
-                    previousword = mword;
-                    break;
-                }
-            }
-        }
+        //단어 선택
+        mword = getRandWord();
+
         final int r_id = mword.id;
+        errorcountvu.setText("Life = " + (3-errorcount));
         wordvu.setText(mword.word);
+        mLogManager.addShowCount();
         mWordManager.addCount(r_id);
 
         Log.e("count", "showcount = "+mword.showcount);
@@ -154,6 +147,24 @@ public class WordToHiragana extends AppCompatActivity {
             ) return true;
         }
         return false;
+    }
+
+    public word getRandWord() {
+        int randint;
+        word returnWord;
+
+        while (true) {
+            randint = rand(words.size());
+            returnWord = words.get(randint);
+            if (isKanji(returnWord.word)) {
+                if (!mword.word.equals(previousword.word) || previousword.word.equals("")) {
+                    previousword = returnWord;
+                    break;
+                }
+            }
+        }
+
+        return returnWord;
     }
 
     private class customThread extends Thread {
