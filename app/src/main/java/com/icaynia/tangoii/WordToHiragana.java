@@ -157,7 +157,7 @@ public class WordToHiragana extends AppCompatActivity {
             randint = rand(words.size());
             returnWord = words.get(randint);
             if (isKanji(returnWord.word)) {
-                if (!mword.word.equals(previousword.word) || previousword.word.equals("")) {
+                if (!returnWord.word.equals(previousword.word) || previousword.word.equals("")) {
                     previousword = returnWord;
                     break;
                 }
