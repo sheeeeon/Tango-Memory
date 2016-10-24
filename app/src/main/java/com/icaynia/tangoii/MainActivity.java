@@ -302,10 +302,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onFragment2(View v) {
         mWordManager.connectAdapter(v);
-        word mword = new word();
-        mword = mWordManager.getWord(3);
-
-
     }
 
     public void onFragment3(View v) {
@@ -313,7 +309,6 @@ public class MainActivity extends AppCompatActivity {
         kanjiToHiraganaMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 onWordToHiragana();
             }
         });
@@ -362,9 +357,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (!_b) {
             addwordtv.setVisibility(View.GONE);
-
         }
     }
+
     public void onAddwordDialog() {
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
         final AlertDialog.Builder   builder     = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
