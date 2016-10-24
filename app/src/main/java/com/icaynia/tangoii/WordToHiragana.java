@@ -87,7 +87,7 @@ public class WordToHiragana extends AppCompatActivity {
 
     private void game() {
         count++;
-        int randint;
+
         //단어 선택
         mword = getRandWord();
 
@@ -175,8 +175,6 @@ public class WordToHiragana extends AppCompatActivity {
         @Override
         public void run() {
             super.run();
-
-
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
