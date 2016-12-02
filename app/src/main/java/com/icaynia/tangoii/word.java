@@ -5,27 +5,27 @@ package com.icaynia.tangoii;
  */
 public class word {
 
-    int id;
-    String        parts;
+    public int           id;
+    public String        parts;
 
-    String        word;         //
-    String        hiragana;     //
-    String        korean ;      //
+    public String        word;
+    public String        hiragana;
+    public String        korean ;
 
-    String        korean2 ;
-    String        example ;
-    String        exampleko;
-    String        example2;
-    String        example2ko;
-    String        example3;
-    String        example3ko;
-    String        example4;
-    String        example4ko;
-    String        example5;
-    String        example5ko;
-    int           showcount;
-    int           passcount;
-    String        regdate;
+    public String        korean2 ;
+    public String        example ;
+    public String        exampleko;
+    public String        example2;
+    public String        example2ko;
+    public String        example3;
+    public String        example3ko;
+    public String        example4;
+    public String        example4ko;
+    public String        example5;
+    public String        example5ko;
+    public int           showcount;
+    public int           passcount;
+    public String        regdate;
 
     public word() {
 

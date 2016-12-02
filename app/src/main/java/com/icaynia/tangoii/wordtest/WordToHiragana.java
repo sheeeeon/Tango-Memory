@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangoii.wordtest;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.icaynia.tangoii.R;
+import com.icaynia.tangoii.logManager;
+import com.icaynia.tangoii.word;
+import com.icaynia.tangoii.wordManager;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -156,12 +161,14 @@ public class WordToHiragana extends AppCompatActivity {
         while (true) {
             randint = rand(words.size());
             returnWord = words.get(randint);
+
             if (isKanji(returnWord.word)) {
                 if (!returnWord.word.equals(previousword.word) || previousword.word.equals("")) {
                     previousword = returnWord;
                     break;
                 }
             }
+            break;
         }
 
         return returnWord;
