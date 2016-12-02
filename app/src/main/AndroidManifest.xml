@@ -18,6 +18,10 @@
         <activity android:name=".infActivity" />
         <activity android:name=".wordtest.WordToHiragana"
             android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".FirstActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

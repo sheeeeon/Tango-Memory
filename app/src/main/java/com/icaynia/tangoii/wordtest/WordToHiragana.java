@@ -1,6 +1,5 @@
 package com.icaynia.tangoii.wordtest;
 
-import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 import com.icaynia.tangoii.R;
 import com.icaynia.tangoii.logManager;
-import com.icaynia.tangoii.word;
+import com.icaynia.tangoii.Models.word;
 import com.icaynia.tangoii.wordManager;
 
 import java.util.ArrayList;

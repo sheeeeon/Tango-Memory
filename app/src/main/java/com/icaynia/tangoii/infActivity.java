@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.icaynia.tangoii.Models.word;
 
 public class infActivity extends AppCompatActivity {
     private TextView hiraganavu;
@@ -30,11 +29,8 @@ public class infActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inf);
         this.init();
-
         Intent intent = getIntent();
         no = intent.getIntExtra("no", 0);
-
-        //Toast.makeText(this, "no="+no, Toast.LENGTH_SHORT).show();
 
         if (no != 0) {
             mword = mWordManager.getWord(no);
@@ -45,6 +41,7 @@ public class infActivity extends AppCompatActivity {
             count.setText(mword.passcount+"/"+mword.showcount+" %");
         }
     }
+
 
     private void init() {
         hiraganavu = (TextView) findViewById(R.id.hiraganavu);

@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(this, FirstActivity.class);
+        startActivity(intent);
 
         dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
 

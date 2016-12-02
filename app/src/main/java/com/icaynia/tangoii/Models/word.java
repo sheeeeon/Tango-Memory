@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangoii.Models;
 
 /**
  * Created by icaynia on 16. 10. 5..

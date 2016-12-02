@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.icaynia.tangoii.Models.word;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
