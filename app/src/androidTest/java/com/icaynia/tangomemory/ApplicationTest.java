@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

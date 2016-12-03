@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.icaynia.tangoii.Models.word;
+import com.icaynia.tangomemory.Models.word;
 
 import java.util.ArrayList;
 

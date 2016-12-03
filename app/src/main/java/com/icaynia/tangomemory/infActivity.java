@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.icaynia.tangoii.Models.word;
+import com.icaynia.tangomemory.Models.word;
 
 public class infActivity extends AppCompatActivity {
     private TextView hiraganavu;

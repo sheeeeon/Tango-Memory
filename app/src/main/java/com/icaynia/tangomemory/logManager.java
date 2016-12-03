@@ -1,10 +1,12 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
+
+import com.icaynia.tangomemory.Helpers.MySQLiteOpenHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

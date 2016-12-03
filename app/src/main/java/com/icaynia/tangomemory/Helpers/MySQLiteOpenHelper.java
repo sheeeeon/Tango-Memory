@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory.Helpers;
 
 /**
  * Created by icaynia on 16. 10. 5..
@@ -7,7 +7,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     // 안드로이드에서 SQLite 데이터 베이스를 쉽게 사용할 수 있도록 도와주는 클래스

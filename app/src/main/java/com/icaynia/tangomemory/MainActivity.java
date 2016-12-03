@@ -1,4 +1,4 @@
-package com.icaynia.tangoii;
+package com.icaynia.tangomemory;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.icaynia.tangoii.wordtest.WordToHiragana;
+import com.icaynia.tangomemory.wordtest.WordToHiragana;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,13 +67,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Splash.class);
         startActivity(intent);
 
-        dialogV = getLayoutInflater().inflate(R.layout.dialog_addword, null);
 
         mWordManager = new wordManager(this);
         mLogManager = new logManager(this);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         wordRows = mWordManager.getWordRows();
@@ -141,11 +139,7 @@ public class MainActivity extends AppCompatActivity {
         onAddwordbutton(false);
         onSearchButton(false);
 
-
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

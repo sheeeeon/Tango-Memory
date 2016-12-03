@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.icaynia.tangoii.View.NwTextView
+    <com.icaynia.tangomemory.View.NwTextView
         android:text="TangoMemory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

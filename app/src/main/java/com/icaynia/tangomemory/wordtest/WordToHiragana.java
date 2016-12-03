@@ -1,4 +1,4 @@
-package com.icaynia.tangoii.wordtest;
+package com.icaynia.tangomemory.wordtest;
 
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.icaynia.tangoii.R;
-import com.icaynia.tangoii.logManager;
-import com.icaynia.tangoii.Models.word;
-import com.icaynia.tangoii.wordManager;
+import com.icaynia.tangomemory.R;
+import com.icaynia.tangomemory.logManager;
+import com.icaynia.tangomemory.Models.word;
+import com.icaynia.tangomemory.wordManager;
 
 import java.util.ArrayList;
 import java.util.Random;
