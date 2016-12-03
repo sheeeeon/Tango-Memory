@@ -60,10 +60,6 @@ public class infActivity extends AppCompatActivity {
         mWordManager = new wordManager(this);
     }
 
-    private void makeToast(String str) {
-        Toast.makeText(this, str, Toast.LENGTH_SHORT);
-    }
-
     @Override
     public void finish() {
         super.finish();
