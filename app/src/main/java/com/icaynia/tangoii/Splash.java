@@ -8,12 +8,11 @@ import android.support.v7.app.AppCompatActivity;
  * Created by icaynia on 2016. 12. 3..
  */
 
-public class FirstActivity extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-
     }
 }
