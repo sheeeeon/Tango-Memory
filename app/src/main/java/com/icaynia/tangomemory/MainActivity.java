@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
@@ -18,7 +19,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.icaynia.tangomemory.wordtest.WordToHiragana;
@@ -46,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
-
     private TextView addwordtv;
     private TextView searchtv;
     private TextView searchcanceltv;
@@ -55,18 +57,12 @@ public class MainActivity extends AppCompatActivity {
     private int wordRows;
     private int wordRowsToday;
 
-
     SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd" , Locale.KOREA);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Intent intent = new Intent(this, Splash.class);
-        startActivity(intent);
-
 
         mWordManager = new wordManager(this);
         mLogManager = new logManager(this);
@@ -80,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
 
+            }
             @Override
             public void onPageSelected(int position) {
                 if (position == 1) {
@@ -91,17 +87,13 @@ public class MainActivity extends AppCompatActivity {
                     onAddwordbutton(false);
                     onSearchButton(false);
                 }
-
                 wordRows = mWordManager.getWordRows();
                 wordRowsToday = mWordManager.getWordRowsToday();
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
+
             }
-
-
         });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -139,7 +131,11 @@ public class MainActivity extends AppCompatActivity {
         onAddwordbutton(false);
         onSearchButton(false);
 
+        //Navigation Drawer
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -405,3 +401,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+

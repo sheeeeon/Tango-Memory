@@ -1,5 +1,6 @@
 package com.icaynia.tangomemory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class Splash extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                onMainActivity();
                 finish();
             }
         }, 3000);
@@ -32,5 +34,10 @@ public class Splash extends AppCompatActivity {
                 return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void onMainActivity() {
+        Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);
     }
 }
