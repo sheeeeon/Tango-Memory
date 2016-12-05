@@ -12,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.icaynia.tangomemory.Fragments.GameFragment;
 import com.icaynia.tangomemory.Fragments.HomeFragment;
 import com.icaynia.tangomemory.Fragments.LoginFragment;
+import com.icaynia.tangomemory.Fragments.SettingFragment;
 
 import java.util.List;
 
@@ -89,8 +91,14 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0:
+                    case 0: // Home
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new HomeFragment()).commit();
+                        break;
+                    case 1: // Game
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new GameFragment()).commit();
+                        break;
+                    case 2:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new SettingFragment()).commit();
                         break;
                     case 3:
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new LoginFragment()).commit();
