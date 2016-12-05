@@ -9,8 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/round"
-        android:layout_margin="5dp"
-        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -19,14 +21,14 @@
             android:layout_height="wrap_content"
             android:text="Card Title"
             android:textSize="24sp"
-            android:textColor="#FFFFFF"
+            android:textColor="#ffffff"
             android:paddingBottom="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="card information"
-            android:textColor="#FFFFFF"
+            android:textColor="#b9b9b9"
             android:textSize="15sp"/>
 
     </LinearLayout>

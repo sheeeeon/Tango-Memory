@@ -1,4 +1,4 @@
-package com.icaynia.tangomemory;
+package com.icaynia.tangomemory.Data;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.icaynia.tangomemory.Models.word;
+import com.icaynia.tangomemory.R;
+import com.icaynia.tangomemory.infActivity;
 
 import java.util.ArrayList;
 

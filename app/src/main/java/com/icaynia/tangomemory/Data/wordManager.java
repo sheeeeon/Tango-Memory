@@ -13,7 +13,6 @@ import com.icaynia.tangomemory.Helpers.MySQLiteOpenHelper;
 import com.icaynia.tangomemory.MainActivity;
 import com.icaynia.tangomemory.Models.word;
 import com.icaynia.tangomemory.R;
-import com.icaynia.tangomemory.wordAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

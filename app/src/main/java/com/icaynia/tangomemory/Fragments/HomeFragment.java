@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.icaynia.tangomemory.Data.wordManager;
 import com.icaynia.tangomemory.R;
+import com.icaynia.tangomemory.View.Card;
 
 /**
  * Created by icaynia on 2016. 12. 5..
@@ -29,7 +30,8 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     private void initialize() {
         mWordManager = new wordManager(getContext());
 
-
+        Card card1 = (Card) fragmentView.findViewById(R.id.card1);
+        card1.setTitle("Today's activity");
     }
 
 }

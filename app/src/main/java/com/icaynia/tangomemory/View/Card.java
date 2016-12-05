@@ -63,4 +63,8 @@ public class Card extends LinearLayout
         }
     }
 
+    public void setTitle(String titleStr) {
+        title.setText(titleStr);
+    }
+
 }
