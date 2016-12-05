@@ -16,6 +16,7 @@ import com.icaynia.tangomemory.Fragments.GameFragment;
 import com.icaynia.tangomemory.Fragments.HomeFragment;
 import com.icaynia.tangomemory.Fragments.LoginFragment;
 import com.icaynia.tangomemory.Fragments.SettingFragment;
+import com.icaynia.tangomemory.Fragments.WordFragment;
 
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class TestActivity extends AppCompatActivity {
 
         }
 
-        //getSupportFragmentManager().beginTransaction().add(R.id.content, new LoginFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.content, new HomeFragment()).commit();
     }
 
     private void setActionBar() {
@@ -94,13 +95,16 @@ public class TestActivity extends AppCompatActivity {
                     case 0: // Home
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new HomeFragment()).commit();
                         break;
-                    case 1: // Game
+                    case 1: // Word
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new WordFragment()).commit();
+                        break;
+                    case 2: // Game
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new GameFragment()).commit();
                         break;
-                    case 2:
+                    case 3:
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new SettingFragment()).commit();
                         break;
-                    case 3:
+                    case 4:
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new LoginFragment()).commit();
                         break;
 

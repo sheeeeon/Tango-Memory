@@ -15,6 +15,7 @@ import android.widget.SimpleAdapter;
 
 public class Drawer extends LinearLayout {
     public ListView listView;
+    public LinearLayout profileView;
 
 
     public Drawer(Context context) {
@@ -30,10 +31,9 @@ public class Drawer extends LinearLayout {
     public void initialize() {
         viewInitialize();
 
-        String[] str = {"1", "2"};
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
         adapter.add("Home");
+        adapter.add("Word");
         adapter.add("Game");
         adapter.add("Setting");
         adapter.add("Account");
