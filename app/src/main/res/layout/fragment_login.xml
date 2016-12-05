@@ -4,4 +4,66 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <com.icaynia.tangomemory.View.NwTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TangoMemory"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_login_inputform"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <com.icaynia.tangomemory.View.NwTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:singleLine="false"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_margin="34dp"
+            android:background="#3a9669"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not a member? Sign up now."
+            android:textSize="12dp"
+            android:singleLine="false"/>
+    </LinearLayout>
 </LinearLayout>

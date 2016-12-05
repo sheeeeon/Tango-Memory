@@ -1,18 +1,14 @@
 package com.icaynia.tangomemory;
 
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import static com.icaynia.tangomemory.R.id.drawerLayout;
-import static com.icaynia.tangomemory.R.id.toolbar;
+import com.icaynia.tangomemory.Fragments.LoginFragment;
 
 /**
  * Created by icaynia on 2016. 12. 4..
@@ -42,12 +38,8 @@ public class TestActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerLayout.setStatusBarBackgroundColor(0xEEEEEE);
-        //listView = (ListView) findViewById(R.id.listView);
-        //listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navItems));
 
         setActionBar();
         setDrawer();
@@ -56,6 +48,8 @@ public class TestActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
 
         }
+
+        //getSupportFragmentManager().beginTransaction().add(R.id.content, new LoginFragment()).commit();
     }
 
     private void setActionBar() {

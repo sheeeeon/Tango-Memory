@@ -14,6 +14,8 @@ import android.widget.SimpleAdapter;
  */
 
 public class Drawer extends LinearLayout {
+    public ListView listView;
+
 
     public Drawer(Context context) {
         super(context);
@@ -26,11 +28,8 @@ public class Drawer extends LinearLayout {
     }
 
     public void initialize() {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.view_drawer, this, false);
-        addView(v);
+        viewInitialize();
 
-        ListView listView = (ListView) v.findViewById(R.id.view_drawer_listview);
         String[] str = {"1", "2"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
@@ -42,6 +41,13 @@ public class Drawer extends LinearLayout {
         adapter.add("2");
 
         listView.setAdapter(adapter);
+    }
+
+    public void viewInitialize() {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.view_drawer, this, false);
+        addView(v);
+        ListView listView = (ListView) v.findViewById(R.id.view_drawer_listview);
     }
 
 
