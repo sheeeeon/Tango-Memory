@@ -1,4 +1,4 @@
-package com.icaynia.tangomemory;
+package com.icaynia.tangomemory.Data;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,7 +10,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.icaynia.tangomemory.Helpers.MySQLiteOpenHelper;
+import com.icaynia.tangomemory.MainActivity;
 import com.icaynia.tangomemory.Models.word;
+import com.icaynia.tangomemory.R;
+import com.icaynia.tangomemory.wordAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

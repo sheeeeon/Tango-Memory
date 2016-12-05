@@ -47,7 +47,7 @@ public class Drawer extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.view_drawer, this, false);
         addView(v);
-        ListView listView = (ListView) v.findViewById(R.id.view_drawer_listview);
+        listView = (ListView) v.findViewById(R.id.view_drawer_listview);
     }
 
 

@@ -1,14 +1,21 @@
 package com.icaynia.tangomemory;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.icaynia.tangomemory.Fragments.HomeFragment;
 import com.icaynia.tangomemory.Fragments.LoginFragment;
+
+import java.util.List;
 
 /**
  * Created by icaynia on 2016. 12. 4..
@@ -17,8 +24,9 @@ import com.icaynia.tangomemory.Fragments.LoginFragment;
 public class TestActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
-    private ListView listView;
     private ActionBarDrawerToggle drawerToggle;
+
+    private ListView listView;
 
     private CharSequence mActionBarTitle;
     private CharSequence mMenuTitle;
@@ -65,7 +73,7 @@ public class TestActivity extends AppCompatActivity {
                 getSupportActionBar().setTitle(mMenuTitle);
                 // calling onPrepareOptionsMenu() to show action bar icons
                 invalidateOptionsMenu();
-            }
+        }
 
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle("Settings");
@@ -73,6 +81,33 @@ public class TestActivity extends AppCompatActivity {
                 invalidateOptionsMenu();
             }
         };
+
+        final Drawer drawer = (Drawer) findViewById(R.id.drawer);
+        listView = drawer.listView;
+
+        drawer.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new HomeFragment()).commit();
+                        break;
+                    case 3:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new LoginFragment()).commit();
+                        break;
+
+                }
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mDrawerLayout.closeDrawer(Gravity.LEFT);
+                    }
+                }, 150);
+            }
+
+        });
+
 
     }
 

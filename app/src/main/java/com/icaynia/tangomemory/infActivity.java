@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.icaynia.tangomemory.Data.wordManager;
 import com.icaynia.tangomemory.Models.word;
 
 public class infActivity extends AppCompatActivity {
