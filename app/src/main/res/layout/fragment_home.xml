@@ -11,6 +11,12 @@
         android:textSize="30dp"
         android:id="@+id/textView5"/>
 
+    <com.icaynia.tangomemory.View.Card
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card1"
+        />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

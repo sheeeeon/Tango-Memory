@@ -13,6 +13,7 @@ import com.icaynia.tangomemory.R;
  */
 
 public class HomeFragment extends android.support.v4.app.Fragment  {
+    private View fragmentView;
     private wordManager mWordManager;
 
     public HomeFragment() {
@@ -20,12 +21,15 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
         initialize();
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return fragmentView;
     }
 
     private void initialize() {
         mWordManager = new wordManager(getContext());
+
+
     }
 
 }
