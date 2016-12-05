@@ -3,6 +3,7 @@ package com.icaynia.tangomemory;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import static com.icaynia.tangomemory.R.id.drawerLayout;
+import static com.icaynia.tangomemory.R.id.toolbar;
 
 /**
  * Created by icaynia on 2016. 12. 4..
@@ -25,6 +27,10 @@ public class TestActivity extends AppCompatActivity {
     private CharSequence mActionBarTitle;
     private CharSequence mMenuTitle;
 
+    private Toolbar toolbar;
+
+    private ActionBarDrawerToggle mDrawerToggle;
+
     private String[] navItems = {"fragment", "fragment2", "fragment3"};
 
     @Override
@@ -33,8 +39,10 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         // toolbar setting
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mDrawerLayout.setStatusBarBackgroundColor(0xEEEEEE);
@@ -43,6 +51,7 @@ public class TestActivity extends AppCompatActivity {
 
         setActionBar();
         setDrawer();
+        toolbar.setNavigationIcon(R.drawable.ic_menu);
 
         if (savedInstanceState == null) {
 
@@ -54,6 +63,23 @@ public class TestActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.action_settings, R.string.app_name){
+            public void onDrawerClosed(View view)
+            {
+
+                getSupportActionBar().setTitle(mMenuTitle);
+                // calling onPrepareOptionsMenu() to show action bar icons
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerOpened(View drawerView) {
+                getSupportActionBar().setTitle("Settings");
+                // calling onPrepareOptionsMenu() to hide action bar icons
+                invalidateOptionsMenu();
+            }
+        };
+
     }
 
 

@@ -28,13 +28,18 @@
     <!-- Your drawer view. This can be any view, LinearLayout
          is just an example. As we have set fitSystemWindows=true
          this will be displayed under the status bar. -->
+
     <LinearLayout
         android:layout_width="260dp"
         android:layout_height="match_parent"
         android:layout_gravity="left|start"
         android:fitsSystemWindows="true"
-        android:background="#cccccc">
+        android:background="#00cc00">
 
+        <com.icaynia.tangomemory.Drawer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        />
 
 
     </LinearLayout>
