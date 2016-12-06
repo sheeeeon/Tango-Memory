@@ -10,14 +10,11 @@
         android:textSize="30dp"
         android:padding="15dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <com.icaynia.tangomemory.View.Card
         android:id="@+id/kanjiToHiraganaMenu"
-        android:text="한자-히라가나 쓰기"
-        android:textSize="18dp"
-        android:gravity="center_vertical"
-        android:padding="10dp"
-        android:background="#c5c5c5" />
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+    </com.icaynia.tangomemory.View.Card>
 
 </LinearLayout>
