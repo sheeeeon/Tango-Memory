@@ -1,5 +1,6 @@
 package com.icaynia.tangomemory;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -40,6 +42,8 @@ public class TestActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private boolean actionButtonVisible = false;
+
     private String[] navItems = {"fragment", "fragment2", "fragment3"};
 
     @Override
@@ -70,7 +74,24 @@ public class TestActivity extends AppCompatActivity {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main2, menu);
+        MenuItem m = menu.findItem(R.id.action_add);
+        if (!actionButtonVisible) m.setVisible(false);
+        else m.setVisible(true);
+
+
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_add:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void setActionBar() {
@@ -102,6 +123,11 @@ public class TestActivity extends AppCompatActivity {
         drawer.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1) {
+                    actionButtonVisible = true;
+                } else {
+                    actionButtonVisible = false;
+                }
                 switch (position) {
                     case 0: // Home
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new HomeFragment()).commit();
@@ -120,6 +146,7 @@ public class TestActivity extends AppCompatActivity {
                         break;
 
                 }
+
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
