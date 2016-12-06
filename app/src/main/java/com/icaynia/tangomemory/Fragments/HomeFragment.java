@@ -57,8 +57,12 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     private void card1() {
         card1.setTitle("Today's activity");
         TodaysActivityView tav = new TodaysActivityView(getContext());
-        tav.setValue(
+        tav.setSolvedcountValue(
                 mLogManager.getCount(transFormat.format(date))+"");
+
+        tav.setTodayaddcountValue(
+                mWordManager.getWordRowsToday() + ""
+        );
 
         card1.setContent(tav.getView());
     }

@@ -19,6 +19,8 @@ public class TodaysActivityView extends LinearLayout {
     private View v;
 
     private TextView todayaddcount;
+    private TextView solvedcount;
+
     public TodaysActivityView(Context context) {
         super(context);
         initialize();
@@ -35,10 +37,15 @@ public class TodaysActivityView extends LinearLayout {
         addView(v);
 
         todayaddcount = (TextView) v.findViewById(R.id.view_todaysactivityview_addwordcount);
+        solvedcount = (TextView) v.findViewById(R.id.view_todaysactivityview_solvedcount);
     }
 
-    public void setValue(String str) {
+    public void setTodayaddcountValue(String str) {
         todayaddcount.setText(str);
+    }
+
+    public void setSolvedcountValue(String str) {
+        solvedcount.setText(str);
     }
 
     public View getView() {

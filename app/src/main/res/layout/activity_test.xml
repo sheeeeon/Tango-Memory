@@ -19,7 +19,21 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:background="?attr/colorPrimary" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:id="@+id/showevents"
+                android:textSize="12sp"
+                android:background="@null"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:textColor="#FFF"
+                android:text="ADD\nWORD"/>
+
+        </android.support.v7.widget.Toolbar>
 
         <!-- The rest of your content view -->
 

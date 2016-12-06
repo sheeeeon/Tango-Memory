@@ -9,6 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.icaynia.tangomemory.Data.DrawerListAdapter;
+import com.icaynia.tangomemory.Models.DrawerRows;
+
 /**
  * Created by icaynia on 2016. 12. 5..
  */
@@ -30,17 +33,13 @@ public class Drawer extends LinearLayout {
 
     public void initialize() {
         viewInitialize();
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1);
-        adapter.add("Home");
-        adapter.add("Word");
-        adapter.add("Game");
-        adapter.add("Setting");
-        adapter.add("Account");
-        adapter.add("1");
-        adapter.add("2");
-
+        DrawerListAdapter adapter = new DrawerListAdapter();
+        adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Home"));
+        adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Word"));
+        adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_translate), "Game"));
+        //adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Home"));
         listView.setAdapter(adapter);
+
     }
 
     public void viewInitialize() {
