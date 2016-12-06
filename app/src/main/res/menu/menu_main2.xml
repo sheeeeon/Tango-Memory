@@ -1,10 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.icaynia.tangomemory.Main2Activity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+      xmlns:yourapp="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+
+    <item android:id="@+id/action_add"
+          android:icon="@drawable/ic_add"
+          android:title=""
+          yourapp:showAsAction="ifRoom" />
+
+    <!-- 오버플로우 공간 안에 있는 "셋팅" 액션 아이템 -->
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          yourapp:showAsAction="never" />
 </menu>

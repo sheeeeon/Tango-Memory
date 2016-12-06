@@ -35,9 +35,8 @@ public class Drawer extends LinearLayout {
         viewInitialize();
         DrawerListAdapter adapter = new DrawerListAdapter();
         adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Home"));
-        adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Word"));
+        adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_list), "Word"));
         adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_translate), "Game"));
-        //adapter.add(new DrawerRows(getResources().getDrawable(R.drawable.ic_home), "Home"));
         listView.setAdapter(adapter);
 
     }

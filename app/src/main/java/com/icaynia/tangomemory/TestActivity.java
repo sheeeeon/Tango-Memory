@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -61,6 +63,14 @@ public class TestActivity extends AppCompatActivity {
         }
 
         getSupportFragmentManager().beginTransaction().add(R.id.content, new HomeFragment()).commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main2, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void setActionBar() {
