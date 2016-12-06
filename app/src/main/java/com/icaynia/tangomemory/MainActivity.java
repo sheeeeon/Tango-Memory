@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.icaynia.tangomemory.Data.logManager;
 import com.icaynia.tangomemory.Data.wordManager;
 import com.icaynia.tangomemory.wordtest.WordToHiragana;
 

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.icaynia.tangomemory.R;
@@ -17,6 +19,10 @@ public class Card extends LinearLayout
 {
     private LinearLayout box;
     private TextView title;
+    private View mainContent;
+    private LinearLayout topLL;
+
+    private View v;
 
     public int[][] theme = {
             {1, 3}
@@ -38,11 +44,12 @@ public class Card extends LinearLayout
 
     public void viewInitialize() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.view_card, this, false);
+        v = inflater.inflate(R.layout.view_card, this, false);
         addView(v);
 
         box = (LinearLayout) v.findViewById(R.id.view_card_box);
         title = (TextView) v.findViewById(R.id.view_card_title);
+        topLL = (LinearLayout) v.findViewById(R.id.view_card_content);
     }
 
     public void setTheme(int theme) {
@@ -65,6 +72,16 @@ public class Card extends LinearLayout
 
     public void setTitle(String titleStr) {
         title.setText(titleStr);
+    }
+
+    public void setContent(View content) {
+        mainContent = content;
+
+        topLL.addView(content);
+    }
+
+    public View getContentView() {
+        return mainContent;
     }
 
 }

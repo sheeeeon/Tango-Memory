@@ -24,12 +24,12 @@
             android:textColor="#ffffff"
             android:paddingBottom="5dp"/>
 
-        <TextView
+
+        <LinearLayout
+            android:id="@+id/view_card_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="card information"
-            android:textColor="#b9b9b9"
-            android:textSize="15sp"/>
+            android:orientation="vertical" />
 
     </LinearLayout>
 

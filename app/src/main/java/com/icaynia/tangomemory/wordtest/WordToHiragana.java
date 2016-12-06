@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.icaynia.tangomemory.R;
-import com.icaynia.tangomemory.logManager;
+import com.icaynia.tangomemory.Data.logManager;
 import com.icaynia.tangomemory.Models.word;
 import com.icaynia.tangomemory.Data.wordManager;
 
