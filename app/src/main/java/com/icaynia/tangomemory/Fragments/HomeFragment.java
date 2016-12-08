@@ -19,6 +19,7 @@ import java.util.Locale;
 import java.util.logging.LogManager;
 
 import static com.icaynia.tangomemory.R.id.card1;
+import static com.icaynia.tangomemory.R.id.card4;
 
 /**
  * Created by icaynia on 2016. 12. 5..
@@ -35,6 +36,7 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     private Card card1;
     private Card card2;
     private Card card3;
+    private Card card4;
 
     public HomeFragment() {
 
@@ -60,7 +62,7 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
         card1 = (Card) fragmentView.findViewById(R.id.card1);
         card2 = (Card) fragmentView.findViewById(R.id.card2);
         card3 = (Card) fragmentView.findViewById(R.id.card3);
-
+        card4 = (Card) fragmentView.findViewById(R.id.card4);
     }
 
     private void card1() {
@@ -92,11 +94,11 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     }
 
     private void card4() {
-        card3.setTitle("Word Status");
+        card4.setTitle("Word Status");
         GameActivityView tav = new GameActivityView(getContext());
         tav.setAllcountValue(mLogManager.getCount()+"");
         tav.setKanjitohiraganaValue("0");
-        card3.setContent(tav.getView());
+        card4.setContent(tav.getView());
     }
 
 
