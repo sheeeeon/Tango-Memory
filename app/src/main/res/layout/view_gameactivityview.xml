@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -12,10 +12,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="You Solved"/>
+            android:text="All count"/>
 
         <TextView
-            android:id="@+id/view_todaysactivityview_solvedcount"
+            android:id="@+id/view_gameactivityview_allcount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -33,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="You added"/>
+            android:text="kanji to hiragana"/>
 
         <TextView
-            android:id="@+id/view_todaysactivityview_addwordcount"
+            android:id="@+id/view_gameactivityview_kanjitohiragana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -45,5 +45,6 @@
 
 
     </LinearLayout>
+
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import com.icaynia.tangomemory.Data.logManager;
 import com.icaynia.tangomemory.Data.wordManager;
 import com.icaynia.tangomemory.R;
 import com.icaynia.tangomemory.View.Card;
+import com.icaynia.tangomemory.View.GameActivityView;
 import com.icaynia.tangomemory.View.TodaysActivityView;
 import com.icaynia.tangomemory.View.YourTangoActivityView;
 
@@ -52,6 +53,7 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
         card1();
         card2();
         card3();
+        card4();
     }
 
     private void viewInitialize() {
@@ -83,8 +85,17 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
 
     private void card3() {
         card3.setTitle("Game Activity");
-        YourTangoActivityView tav = new YourTangoActivityView(getContext());
+        GameActivityView tav = new GameActivityView(getContext());
+        tav.setAllcountValue(mLogManager.getCount()+"");
+        tav.setKanjitohiraganaValue("0");
+        card3.setContent(tav.getView());
+    }
 
+    private void card4() {
+        card3.setTitle("Word Status");
+        GameActivityView tav = new GameActivityView(getContext());
+        tav.setAllcountValue(mLogManager.getCount()+"");
+        tav.setKanjitohiraganaValue("0");
         card3.setContent(tav.getView());
     }
 
