@@ -9,7 +9,8 @@
         android:text="Dashboard"
         android:textSize="30dp"
         android:padding="15dp"
-        android:id="@+id/textView5"/>
+        android:id="@+id/textView5"
+        android:visibility="gone"/>
 
     <com.icaynia.tangomemory.View.Card
         android:layout_width="match_parent"

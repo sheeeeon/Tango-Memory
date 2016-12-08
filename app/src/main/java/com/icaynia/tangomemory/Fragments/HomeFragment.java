@@ -10,6 +10,7 @@ import com.icaynia.tangomemory.Data.wordManager;
 import com.icaynia.tangomemory.R;
 import com.icaynia.tangomemory.View.Card;
 import com.icaynia.tangomemory.View.TodaysActivityView;
+import com.icaynia.tangomemory.View.YourTangoActivityView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +32,8 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd" , Locale.KOREA);
 
     private Card card1;
+    private Card card2;
+    private Card card3;
 
     public HomeFragment() {
 
@@ -47,26 +50,43 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
         mWordManager = new wordManager(getContext());
         mLogManager = new logManager(getContext());
         card1();
+        card2();
+        card3();
     }
 
     private void viewInitialize() {
         card1 = (Card) fragmentView.findViewById(R.id.card1);
+        card2 = (Card) fragmentView.findViewById(R.id.card2);
+        card3 = (Card) fragmentView.findViewById(R.id.card3);
 
     }
 
     private void card1() {
-        card1.setTitle("Today's activity");
+        card1.setTitle("Today's Activity");
         TodaysActivityView tav = new TodaysActivityView(getContext());
-        tav.setSolvedcountValue(
-                mLogManager.getCount(transFormat.format(date))+"");
+        tav.setSolvedcountValue(mLogManager.getCount(transFormat.format(date))+"");
 
-        tav.setTodayaddcountValue(
-                mWordManager.getWordRowsToday() + ""
-        );
+        tav.setTodayaddcountValue(mWordManager.getWordRowsToday() + "");
 
         card1.setContent(tav.getView());
     }
 
+    private void card2() {
+        card2.setTitle("Your Tango Activity");
+        YourTangoActivityView tav = new YourTangoActivityView(getContext());
+        tav.setWordquantityValue(
+                mWordManager.getWordRows()+""
+        );
+
+        card2.setContent(tav.getView());
+    }
+
+    private void card3() {
+        card3.setTitle("Game Activity");
+        YourTangoActivityView tav = new YourTangoActivityView(getContext());
+
+        card3.setContent(tav.getView());
+    }
 
 
 }

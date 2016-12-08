@@ -1,6 +1,8 @@
 package com.icaynia.tangomemory;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.view.KeyEvent;
  */
 
 public class Splash extends AppCompatActivity {
+    SharedPreferences mPref = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,10 +24,25 @@ public class Splash extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                onMainActivity();
+                boolean isFirst = mPref.getBoolean("isFirst", true);
+                if (isFirst == true) {
+                    SharedPreferences.Editor prefEditor = mPref.edit();
+                    prefEditor.putBoolean("isFirst", false);
+                    prefEditor.apply();
+
+                    onTutorialActivity();
+                } else {
+                    onMainActivity();
+                }
+
                 finish();
             }
         }, 3000);
+
+        mPref = getSharedPreferences("Setting", Context.MODE_PRIVATE);
+        //mPref.registerOnSharedPreferenceChangeListener(mPrefChangeListener);
+
+
     }
 
     @Override
@@ -40,4 +58,10 @@ public class Splash extends AppCompatActivity {
         Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
     }
+
+    public void onTutorialActivity () {
+        Intent intent = new Intent(this, TutorialActivity.class);
+        startActivity(intent);
+    }
+
 }

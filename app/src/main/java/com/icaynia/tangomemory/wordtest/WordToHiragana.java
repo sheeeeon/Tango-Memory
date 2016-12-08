@@ -94,6 +94,10 @@ public class WordToHiragana extends AppCompatActivity {
 
         //단어 선택
         mword = getRandWord();
+        if (!isKanji(mword.word)) {
+            game();
+            return;
+        }
 
         final int r_id = mword.id;
         errorcountvu.setText("Life = " + (3-errorcount));
