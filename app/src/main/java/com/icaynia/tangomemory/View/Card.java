@@ -54,6 +54,13 @@ public class Card extends LinearLayout
         box = (LinearLayout) v.findViewById(R.id.view_card_box);
         title = (TextView) v.findViewById(R.id.view_card_title);
         topLL = (LinearLayout) v.findViewById(R.id.view_card_content);
+
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     public void setTheme(int theme) {
