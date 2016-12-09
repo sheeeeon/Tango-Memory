@@ -47,6 +47,7 @@ public class GameFragment extends android.support.v4.app.Fragment {
         text.setText("Change the given kanji word to hiragana");
         text.setLayoutParams(param);
         menu1.setContent(text);
+        menu1.setActionButtonVisible(View.VISIBLE);
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

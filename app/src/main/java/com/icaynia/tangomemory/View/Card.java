@@ -3,8 +3,11 @@ package com.icaynia.tangomemory.View;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,6 +48,7 @@ public class Card extends LinearLayout
     public void viewInitialize() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.view_card, this, false);
+
         addView(v);
 
         box = (LinearLayout) v.findViewById(R.id.view_card_box);
@@ -83,4 +87,8 @@ public class Card extends LinearLayout
         return mainContent;
     }
 
+    public void setActionButtonVisible(int Visible) {
+        LinearLayout ll = (LinearLayout) v.findViewById(R.id.view_card_actionbutton1);
+        ll.setVisibility(Visible);
+    }
 }
