@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView searchcanceltv;
     private View dialogV;
 
-    private int wordRows;
-    private int wordRowsToday;
-
     private Toolbar toolbar;
 
     SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd" , Locale.KOREA);
@@ -72,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        wordRows = mWordManager.getWordRows();
-        wordRowsToday = mWordManager.getWordRowsToday();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -92,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     onAddwordbutton(false);
                     onSearchButton(false);
                 }
-                wordRows = mWordManager.getWordRows();
-                wordRowsToday = mWordManager.getWordRowsToday();
             }
             @Override
             public void onPageScrollStateChanged(int state) {
@@ -270,21 +263,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFragment1(View v) {
-        TextView wordcountTv = (TextView) v.findViewById(R.id.wordcountTv);
-        wordcountTv.setText(wordRows+"");
-
-        TextView todayWordcountTv = (TextView) v.findViewById(R.id.todayWordcountTv);
-        todayWordcountTv.setText(wordRowsToday+"");
-
-        TextView yesterdayWordcountTv = (TextView) v.findViewById(R.id.yesterdayWordcountTv);
-        yesterdayWordcountTv.setText(mWordManager.getWordRowsYesterday()+"");
-
-        TextView todayCountTv = (TextView) v.findViewById(R.id.TodayWordCount);
-        String now = transFormat.format(new Date()).toString();
-        todayCountTv.setText(mLogManager.getCount(now)+"");
-
-        TextView allCountTv = (TextView) v.findViewById(R.id.AllWordCount);
-        allCountTv.setText(mLogManager.getCount()+"");
     }
 
     public void onFragment2(View v) {
