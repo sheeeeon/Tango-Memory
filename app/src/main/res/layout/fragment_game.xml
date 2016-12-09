@@ -13,8 +13,16 @@
     <com.icaynia.tangomemory.View.Card
         android:id="@+id/kanjiToHiraganaMenu"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
 
     </com.icaynia.tangomemory.View.Card>
+
+    <com.icaynia.tangomemory.View.Card
+        android:id="@+id/comeSoonMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.icaynia.tangomemory.View.Card>
+
 
 </LinearLayout>

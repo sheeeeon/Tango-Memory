@@ -76,7 +76,6 @@ public class Card extends LinearLayout
 
     public void setContent(View content) {
         mainContent = content;
-
         topLL.addView(content);
     }
 

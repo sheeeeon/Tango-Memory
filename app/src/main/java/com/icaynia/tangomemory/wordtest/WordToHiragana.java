@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.icaynia.tangomemory.R;
 import com.icaynia.tangomemory.Data.logManager;
@@ -42,11 +43,11 @@ public class WordToHiragana extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_to_hiragana);
         this.init();
-        if (words.size() > 0) {
+        if (words.size() >= 5) {
             game();
         } else {
+            // 단어가 전체 5개 이상이 아닐 시
             finish();
-
         }
     }
 
