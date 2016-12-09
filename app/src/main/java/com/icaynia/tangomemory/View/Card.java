@@ -63,6 +63,10 @@ public class Card extends LinearLayout
         });
     }
 
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        v.setOnClickListener(onClickListener);
+    }
+
     public void setTheme(int theme) {
         switch (theme) {
             case 0: // default 1

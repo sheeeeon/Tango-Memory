@@ -43,6 +43,7 @@ public class WordToHiragana extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_to_hiragana);
         this.init();
+        Log.e("word.size", words.size() + "");
         if (words.size() >= 5) {
             game();
         } else {

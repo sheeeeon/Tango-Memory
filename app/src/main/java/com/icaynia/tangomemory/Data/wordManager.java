@@ -256,7 +256,7 @@ public class wordManager {
                 }
             }
         }
-        for (int i = array.size() - 1; i > array.size()-10; i--) {
+        for (int i = array.size() - 1; i > array.size()-rows-1; i--) {
             int r = (array.get(i).showcount - array.get(i).passcount);
             Log.e("tag", r + array.get(i).word+"");
 

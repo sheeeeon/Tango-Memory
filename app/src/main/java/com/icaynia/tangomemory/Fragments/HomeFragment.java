@@ -105,8 +105,8 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
             ArrayList<word> array = mWordManager.getMistakeWord(5);
             for (int i = 0; i < 5; i++) {
                 tav.setMostwrongWord(i+1, array.get(i).word +
-                        " ["+array.get(i).hiragana + "] "+array.get(i).korean + " " +
-                        (array.get(i).showcount - array.get(i).passcount));
+                        " ["+array.get(i).hiragana + "] "+array.get(i).korean + " - " +
+                        (array.get(i).showcount - array.get(i).passcount) + " missed");
             }
         } else {
             tav.setTitleText("You must add 5 or more words.");
