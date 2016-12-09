@@ -137,7 +137,7 @@ public class WordToHiragana extends AppCompatActivity {
     private int rand(int max) {
         int temp = oRandom.nextInt(max);
         if (temp <= 0) {
-            temp = -temp +1;
+            rand(max);
         }
         return temp;
     }
