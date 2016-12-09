@@ -27,7 +27,7 @@ public class infActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inf);
+        setContentView(R.layout.activity_inf); // 오류 안 뜨는 것 같은데
         this.init();
         Intent intent = getIntent();
         no = intent.getIntExtra("no", 0);
@@ -63,8 +63,6 @@ public class infActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        //overridePendingTransition( R.anim.anim_slide_in_left, R.anim.anim_slide_out_right );
-
     }
 
     public void onEditwordDialog() {

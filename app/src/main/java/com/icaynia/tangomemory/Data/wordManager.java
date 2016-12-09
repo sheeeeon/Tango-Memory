@@ -45,11 +45,7 @@ public class wordManager {
     public wordManager(Context _context) {
         context = _context;
         wordList = new ArrayList<word>();
-        helper = new MySQLiteOpenHelper(
-                context,
-                dbName,
-                null,
-                dbVersion);
+        helper = new MySQLiteOpenHelper(context, dbName, null, dbVersion);
 
         try {
 
@@ -58,7 +54,7 @@ public class wordManager {
         } catch (SQLiteException e) {
             e.printStackTrace();
             Log.e(tag, "데이터베이스를 얻어올 수 없음");
-            ((MainActivity)context).finish();
+            ((MainActivity) context).finish();
         }
 
         Calendar cal = new GregorianCalendar(Locale.KOREA);
@@ -77,13 +73,13 @@ public class wordManager {
 
 
     public word getWord(int index) {
-        String sql = "select * from tangoii where id = "+index+";";
+        String sql = "select * from tangoii where id = " + index + ";";
         Cursor result = db.rawQuery(sql, null);
 
         word mword = new word();
 
         // result(Cursor 객체)가 비어 있으면 false 리턴
-        if(result.moveToFirst()){
+        if (result.moveToFirst()) {
             mword.id = result.getInt(0);
             mword.word = result.getString(2);
             mword.hiragana = result.getString(3);
@@ -99,29 +95,28 @@ public class wordManager {
 
     public void addWord(String word, String hiragana, String korean) {
         db.execSQL("INSERT INTO tangoii " +
-                "VALUES(null,null,'"+word+"','"+hiragana+"','"+korean+"',null,null,null,null,null,null,null,null,null,null,null,0,0,'"+today+"');"
-        );
+                "VALUES(null,null,'" + word + "','" + hiragana + "','" + korean + "',null,null,null,null,null,null,null,null,null,null,null,0,0,'" + today + "');");
     }
 
     public void updateWord(int id, String word, String hiragana, String korean) {
         db.execSQL("UPDATE tangoii SET " +
-                "word = '"+word+"', " +
-                "hiragana = '"+hiragana+"', " +
-                "korean = '"+korean+"' " +
-                "WHERE id = '"+id+"';");
+                "word = '" + word + "', " +
+                "hiragana = '" + hiragana + "', " +
+                "korean = '" + korean + "' " +
+                "WHERE id = '" + id + "';");
     }
 
 
     public void addCount(int id) {
         int count = this.getWord(id).showcount;
         count++;
-        db.execSQL("UPDATE tangoii SET showcount = '"+count+"' WHERE id = '"+id+"';");
+        db.execSQL("UPDATE tangoii SET showcount = '" + count + "' WHERE id = '" + id + "';");
     }
 
     public void addPassCount(int id) {
         int count = this.getWord(id).passcount;
         count++;
-        db.execSQL("UPDATE tangoii SET passcount = '"+count+"' WHERE id = '"+id+"';");
+        db.execSQL("UPDATE tangoii SET passcount = '" + count + "' WHERE id = '" + id + "';");
     }
 
     public int getWordRows() {
@@ -155,15 +150,15 @@ public class wordManager {
             }
             c.close();
         } catch (SQLiteException se) {
-            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("",  se.getMessage());
-            ((MainActivity)context).finish();
+            Toast.makeText(context, se.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("", se.getMessage());
+            ((MainActivity) context).finish();
         }
         return b;
     }
 
     public int getWordRowsToday() {
-        String sql = "SELECT * FROM tangoii where regdate = '"+today+"'";
+        String sql = "SELECT * FROM tangoii where regdate = '" + today + "'";
 
         Cursor result = db.rawQuery(sql, null);
         int rows = result.getCount();
@@ -173,7 +168,7 @@ public class wordManager {
 
     public int getWordRowsYesterday() {
 
-        String sql = "SELECT * FROM tangoii where regdate = '"+yesterday+"'";
+        String sql = "SELECT * FROM tangoii where regdate = '" + yesterday + "'";
 
         Cursor result = db.rawQuery(sql, null);
 
@@ -182,7 +177,7 @@ public class wordManager {
         return rows;
     }
 
-    public boolean isLowCorrectPercentage (word mword) {
+    public boolean isLowCorrectPercentage(word mword) {
         if (getCorrectPercentage(mword) < 20) {
             return true;
         } else {
@@ -194,7 +189,7 @@ public class wordManager {
         int showcount = mword.showcount;
         int passcount = mword.passcount;
 
-        return passcount/showcount * 100;
+        return passcount / showcount * 100;
 
     }
 
@@ -205,7 +200,7 @@ public class wordManager {
         wordList = getWordAll();
 
         for (int i = 0; i < wordList.size(); i++) {
-            m_Adapter.add(wordList.get(i).word+"", wordList.get(i).hiragana+"", wordList.get(i).korean+"");
+            m_Adapter.add(wordList.get(i).word + "", wordList.get(i).hiragana + "", wordList.get(i).korean + "");
         }
 
     }
@@ -226,6 +221,7 @@ public class wordManager {
                         nword.korean = c.getString(4);
                         nword.korean2 = c.getString(5);
                         nword.showcount = c.getInt(c.getColumnIndex("showcount"));
+                        nword.passcount = c.getInt(c.getColumnIndex("passcount"));
 
                         //ArrayList에 추가합니다..
                         array.add(nword);
@@ -234,16 +230,44 @@ public class wordManager {
                 }
             }
             c.close();
-        } catch (SQLiteException se) {
-            Toast.makeText(context,  se.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("",  se.getMessage());
-            ((MainActivity)context).finish();
+        } catch (SQLiteException e) {
+            Log.e("Exception", e.getMessage());
         }
         return array;
     }
 
+    //use only from the end to the fifth value
+    public ArrayList<word> getMistakeWord(int rows) {
+        ArrayList<word> array = getWordAll();
+        ArrayList<word> top5 = new ArrayList<word>();
+        //Bubble Sort
 
+        for (int i = 0; i < rows; i++) {
+            word a1, a2;
+            for (int j = i; j < array.size() - 1; j++) {
+                a1 = array.get(j);
+                a2 = array.get(j+1);
+                int mistake1 = a1.showcount - a1.passcount;
+                int mistake2 = a2.showcount - a2.passcount;
+                if (mistake1 > mistake2) {
+                    //swap
+                    array.set(j+1, a1);
+                    array.set(j, a2);
+                }
+            }
+        }
+        for (int i = array.size() - 1; i > array.size()-10; i--) {
+            int r = (array.get(i).showcount - array.get(i).passcount);
+            Log.e("tag", r + array.get(i).word+"");
+
+            top5.add(array.get(i));
+
+        }
+
+        return top5;
+    }
 
 }
+
 
 

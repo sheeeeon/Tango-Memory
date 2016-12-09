@@ -111,6 +111,20 @@ public class logManager {
         return cnt;
     }
 
+    public int getGameCount(String gameName) {
+        String sql = "select * from ti_game where game_category = '"+gameName+"'";
+        int cnt = 0;
+        Log.e("gg", sql);
+        Cursor result = db.rawQuery(sql,null);
+
+        if (result.moveToFirst()) {
+            do {
+                cnt += result.getInt(3);
+            } while (result.moveToNext());
+        }
+        return cnt;
+    }
+
     public int getCount() {
         String sql = "select * from ti_game";
         int cnt = 0;
