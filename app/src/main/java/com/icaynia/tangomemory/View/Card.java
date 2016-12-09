@@ -67,24 +67,6 @@ public class Card extends LinearLayout
         v.setOnClickListener(onClickListener);
     }
 
-    public void setTheme(int theme) {
-        switch (theme) {
-            case 0: // default 1
-                box.setBackgroundColor(0x104b03);
-                break;
-            case 1: // default 2
-                box.setBackgroundColor(0xC6C6C6);
-                break;
-            case 2: // warning 1
-                box.setBackgroundColor(0x784C00);
-                break;
-            case 3: // warning 2
-                box.setBackgroundColor(0x791800);
-                break;
-
-        }
-    }
-
     public void setTitle(String titleStr) {
         title.setText(titleStr);
     }

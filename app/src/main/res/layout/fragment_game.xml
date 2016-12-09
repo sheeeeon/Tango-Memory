@@ -6,7 +6,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="단어 게임"
+        android:text="Word Game"
         android:textSize="30dp"
         android:padding="15dp" />
 

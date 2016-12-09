@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     private int wordRows;
     private int wordRowsToday;
 
+    private Toolbar toolbar;
+
     SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd" , Locale.KOREA);
 
     @Override
@@ -71,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         wordRows = mWordManager.getWordRows();
         wordRowsToday = mWordManager.getWordRowsToday();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -129,12 +135,14 @@ public class MainActivity extends AppCompatActivity {
 
         onAddwordbutton(false);
         onSearchButton(false);
-
-        //Navigation Drawer
-
-
+        setActionBar();
     }
 
+
+    private void setActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

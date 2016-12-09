@@ -241,29 +241,22 @@ public class wordManager {
         ArrayList<word> array = getWordAll();
         ArrayList<word> top5 = new ArrayList<word>();
         //Bubble Sort
-
         for (int i = 0; i < rows; i++) {
-            word a1, a2;
-            for (int j = i; j < array.size() - 1; j++) {
-                a1 = array.get(j);
-                a2 = array.get(j+1);
-                int mistake1 = a1.showcount - a1.passcount;
-                int mistake2 = a2.showcount - a2.passcount;
-                if (mistake1 > mistake2) {
+            for (int j = 0; j < array.size()-i - 1; j++) {
+                word word1 = array.get(j);
+                word word2 = array.get(j+1);
+                if (word1.showcount - word1.passcount > word2.showcount - word2.passcount) {
                     //swap
-                    array.set(j+1, a1);
-                    array.set(j, a2);
+                    array.set(j, word2);
+                    array.set(j+1, word1);
                 }
             }
         }
-        for (int i = array.size() - 1; i > array.size()-rows-1; i--) {
-            int r = (array.get(i).showcount - array.get(i).passcount);
-            Log.e("tag", r + array.get(i).word+"");
 
+        for (int i = array.size()-1; i >= array.size()-rows; i--) {
             top5.add(array.get(i));
-
+            Log.e("top5 - "+i, array.get(i).word + (array.get(i).showcount - array.get(i).passcount));
         }
-
         return top5;
     }
 
