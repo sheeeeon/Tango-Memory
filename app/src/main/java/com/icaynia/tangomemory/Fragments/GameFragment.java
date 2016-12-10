@@ -40,7 +40,7 @@ public class GameFragment extends android.support.v4.app.Fragment {
 
     public void viewInitialize() {
         menu1 = (Card) v.findViewById(R.id.kanjiToHiraganaMenu);
-        menu1.setTitle("Kanji to Haragana");
+        menu1.setTitle("Kanji to Hiragana");
         TextView text = new TextView(getContext());
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
