@@ -86,10 +86,7 @@ public class WordToHiragana extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.action_giveup:
-                giveupvu.setVisibility(View.GONE);
-                errorcount = 3;
-                input_submit.callOnClick();
-                mThread.run();
+                giveup();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -107,10 +104,7 @@ public class WordToHiragana extends AppCompatActivity {
         giveupvu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                giveupvu.setVisibility(View.GONE);
-                errorcount = 3;
-                input_submit.callOnClick();
-                mThread.run();
+                giveup();
             }
         });
         oRandom = new Random();
@@ -170,6 +164,15 @@ public class WordToHiragana extends AppCompatActivity {
         });
     }
 
+    private void giveup() {
+        giveupItem.setVisible(false);
+        giveupvu.setVisibility(View.GONE);
+        errorcount = 3;
+        input_submit.callOnClick();
+        mThread.run();
+    }
+
+
     private int rand(int max) {
         int temp = oRandom.nextInt(max);
         if (temp <= 0) {
@@ -227,6 +230,7 @@ public class WordToHiragana extends AppCompatActivity {
                 @Override
                 public void run() {
                     giveupvu.setVisibility(View.VISIBLE);
+                    giveupItem.setVisible(true);
                 }
             }, 1000);
 
