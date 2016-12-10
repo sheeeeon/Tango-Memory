@@ -38,9 +38,8 @@ public class WordToHiragana extends AppCompatActivity {
     private Handler mHandler;
     private word previousword = new word();
     private customThread mThread = new customThread();
-
-
     private logManager mLogManager;
+    private MenuItem giveupItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +66,34 @@ public class WordToHiragana extends AppCompatActivity {
         super.onStop();
         mLogManager.addlog();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_game, menu);
+
+        giveupItem = menu.findItem(R.id.action_giveup);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.action_giveup:
+                giveupvu.setVisibility(View.GONE);
+                errorcount = 3;
+                input_submit.callOnClick();
+                mThread.run();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void init() {
