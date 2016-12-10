@@ -100,13 +100,6 @@ public class WordToHiragana extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         input_submit = (Button) findViewById(R.id.input_submit);
         errorcountvu = (TextView) findViewById(R.id.errorcount);
-        giveupvu = (TextView) findViewById(R.id.giveup);
-        giveupvu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                giveup();
-            }
-        });
         oRandom = new Random();
         words = mWordManager.getWordAll();
         mHandler = new Handler();
@@ -166,7 +159,6 @@ public class WordToHiragana extends AppCompatActivity {
 
     private void giveup() {
         giveupItem.setVisible(false);
-        giveupvu.setVisibility(View.GONE);
         errorcount = 3;
         input_submit.callOnClick();
         mThread.run();
@@ -229,7 +221,6 @@ public class WordToHiragana extends AppCompatActivity {
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    giveupvu.setVisibility(View.VISIBLE);
                     giveupItem.setVisible(true);
                 }
             }, 1000);
