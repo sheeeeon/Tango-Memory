@@ -83,13 +83,6 @@ public class infActivity extends AppCompatActivity {
         wordvu = (TextView) findViewById(R.id.wordvu);
         koreanvu = (TextView) findViewById(R.id.koreanvu);
         count = (TextView) findViewById(R.id.count);
-        editwordVu = (TextView) findViewById(R.id.editWordView);
-        editwordVu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onEditwordDialog();
-            }
-        });
 
         mWordManager = new wordManager(this);
 
