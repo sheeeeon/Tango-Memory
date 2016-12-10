@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:yourapp="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+
+    <item android:id="@+id/action_edit"
+          android:icon="@drawable/ic_edit"
+          android:title=""
+          yourapp:showAsAction="ifRoom" />
+
+    <!-- 오버플로우 공간 안에 있는 "셋팅" 액션 아이템
+    <item android:id="@+id/action_settings"
+          android:title="@string/action_settings"
+          android:icon="@drawable/ic_search"
+          yourapp:showAsAction="never" />
+          -->
+</menu>

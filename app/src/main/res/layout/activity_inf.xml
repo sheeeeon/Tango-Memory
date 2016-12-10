@@ -22,7 +22,13 @@
             android:minHeight="?attr/actionBarSize"
             android:background="?attr/colorPrimary" >
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_gravity="right"
+                android:id="@+id/editWordView"
+                android:text="Edit"/>
 
         </android.support.v7.widget.Toolbar>
 
@@ -75,21 +81,6 @@
                 android:textSize="30dp"
                 android:gravity="top|center_vertical|center"
                 android:id="@+id/count" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="편집"
-                android:id="@+id/editWordView"
-                android:layout_gravity="right"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="@android:color/background_dark" />
 
 
         </LinearLayout>
