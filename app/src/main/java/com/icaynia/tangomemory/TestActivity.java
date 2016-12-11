@@ -2,6 +2,7 @@ package com.icaynia.tangomemory;
 
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -146,10 +147,13 @@ public class TestActivity extends AppCompatActivity {
                     case 2: // Game
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new GameFragment()).commit();
                         break;
-                    case 3:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new SettingFragment()).commit();
+                    case 3: // About
+                        onAboutActivity();
                         break;
                     case 4:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.content, new SettingFragment()).commit();
+                        break;
+                    case 5:
                         getSupportFragmentManager().beginTransaction().replace(R.id.content, new LoginFragment()).commit();
                         break;
 
@@ -163,10 +167,12 @@ public class TestActivity extends AppCompatActivity {
                     }
                 }, 150);
             }
-
         });
+    }
 
-
+    private void onAboutActivity() {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 
 

@@ -21,108 +21,9 @@
             android:minHeight="?attr/actionBarSize"
             android:background="?attr/colorPrimary" >
 
-            <TextView
-                android:id="@+id/giveup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GIVE UP"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="right"/>
-
         </android.support.v7.widget.Toolbar>
 
         <!-- The rest of your content view -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ActionbarLayout"
-            android:layout_above="@+id/BottombarLayout"
-            android:weightSum="10"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.3">
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.7"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="14dp"
-                    android:id="@+id/hiraganavu"
-                    android:paddingLeft="15dp"
-                    android:layout_weight="1.6" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="14dp"
-                    android:id="@+id/errorcount"
-                    android:layout_weight="0.4"
-                    android:gravity="right"
-                    android:paddingRight="15dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="単語"
-                    android:textSize="30dp"
-                    android:gravity="top|center_vertical|center"
-                    android:id="@+id/wordvu" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:textSize="16dp"
-                    android:gravity="top|center_vertical|center"
-                    android:id="@+id/input"
-                    android:paddingLeft="50dp"
-                    android:paddingRight="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="7"
-                    android:layout_marginTop="10dp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/input_submit"
-                    android:layout_weight="3"
-                    android:layout_marginRight="20dp"
-                    android:text="OK"
-                    android:singleLine="true" />
-
-            </LinearLayout>
-        </LinearLayout>
 
     </LinearLayout>
 
@@ -134,16 +35,9 @@
         android:layout_width="260dp"
         android:layout_height="match_parent"
         android:layout_gravity="left|start"
-        android:fitsSystemWindows="true"
-        android:background="#ddffdd">
-
-        <com.icaynia.tangomemory.Drawer
-            android:id="@+id/drawer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-
+        android:fitsSystemWindows="true">
+     
+        
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
