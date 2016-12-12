@@ -221,7 +221,7 @@ public class TestActivity extends AppCompatActivity {
                 }
             }
         });
-        builder.setTitle("단어 추가하기");
+        builder.setTitle("Add word");
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

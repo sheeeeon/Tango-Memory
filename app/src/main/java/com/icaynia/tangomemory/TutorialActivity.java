@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.icaynia.tangomemory.Tutorial.TutorialFragment1;
+import com.icaynia.tangomemory.Tutorial.TutorialFragment2;
 
 public class TutorialActivity extends AppCompatActivity {
 
@@ -30,12 +31,12 @@ public class TutorialActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    public SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    public ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +124,7 @@ public class TutorialActivity extends AppCompatActivity {
                 case 0:
                     return new TutorialFragment1();
                 case 1:
-                    break;
+                    return new TutorialFragment2();
             }
             return PlaceholderFragment.newInstance(position + 1);
         }

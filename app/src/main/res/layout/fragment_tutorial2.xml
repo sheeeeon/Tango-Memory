@@ -5,7 +5,6 @@
               android:layout_height="match_parent"
     android:weightSum="10">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,12 +20,12 @@
             <ImageView
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:background="@drawable/ic_tab_on"/>
+                android:background="@drawable/ic_tab_off"/>
 
             <ImageView
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:background="@drawable/ic_tab_off"/>
+                android:background="@drawable/ic_tab_on"/>
 
 
             <ImageView
@@ -41,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:text="Learn Japanese words\nwith tango memory."
+            android:text="For effective word learning, \nit tells you your word learning status"
             android:textSize="24dp"
             android:textColor="#4b783b"
             android:paddingTop="15dp"/>

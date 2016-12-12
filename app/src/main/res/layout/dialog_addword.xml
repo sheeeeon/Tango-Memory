@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="일본어 단어"
+            android:text="Japanese word"
             android:textSize="12sp"
             android:gravity="center"/>
 
@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:hint="단어를 입력하세요"
+            android:hint="Japanese word"
             android:textSize="12sp"
             android:gravity="center"/>
 
@@ -64,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="히라가나 표기"
+            android:text="Hiragana notation"
             android:textSize="12sp"
             android:gravity="center"/>
 
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:hint="히라가나 표기를 입력하세요"
+            android:hint="Hiragana notation"
             android:textSize="12sp"
             android:gravity="center"/>
 
@@ -88,7 +88,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="모국어"
+            android:text="Your language"
             android:textSize="12sp"
             android:gravity="center"/>
 
@@ -97,7 +97,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:hint="한국어 뜻을 입력하세요"
+            android:hint="Your language"
             android:textSize="12sp"
             android:gravity="center"/>
 
