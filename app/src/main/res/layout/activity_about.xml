@@ -24,20 +24,73 @@
         </android.support.v7.widget.Toolbar>
 
         <!-- The rest of your content view -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+
+            <com.icaynia.tangomemory.View.NwTextView
+                android:text="TangoMemory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:textSize="32dp"/>
+
+            <com.icaynia.tangomemory.View.NwTextView
+                android:text="Created By"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:textSize="24dp"/>
+
+            <com.icaynia.tangomemory.View.NwTextView
+                android:id="@+id/createdby"
+                android:text="icaynia"
+                android:textColor="#FFF"
+                android:background="@drawable/ripple_effect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="19dp"/>
+
+            <com.icaynia.tangomemory.View.NwTextView
+                android:text="Open Source"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:textSize="24dp"/>
+
+            <com.icaynia.tangomemory.View.NwTextView
+                android:id="@+id/github"
+                android:text="Github"
+                android:textColor="#FFF"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:textSize="19dp"
+                android:background="@drawable/ripple_effect"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
+
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Your drawer view. This can be any view, LinearLayout
          is just an example. As we have set fitSystemWindows=true
          this will be displayed under the status bar. -->
-
-    <LinearLayout
-        android:layout_width="260dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left|start"
-        android:fitsSystemWindows="true">
-     
-        
-    </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
