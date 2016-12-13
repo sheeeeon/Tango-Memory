@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="5"
         android:orientation="vertical">
 
         <LinearLayout
@@ -25,13 +25,13 @@
             <ImageView
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:background="@drawable/ic_tab_on"/>
+                android:background="@drawable/ic_tab_off"/>
 
 
             <ImageView
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:background="@drawable/ic_tab_off"/>
+                android:background="@drawable/ic_tab_on"/>
 
 
         </LinearLayout>
@@ -39,8 +39,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:text="For effective word learning, \nit tells you your word learning status"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="This is all we have to do. \n Let's do it!"
             android:textSize="24dp"
             android:textColor="#4b783b"
             android:paddingTop="15dp"/>
@@ -50,33 +50,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="5"
         android:background="#b8e4a9">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/action_go_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <com.icaynia.tangomemory.View.Card
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/card1"
-                    />
-
-                <com.icaynia.tangomemory.View.Card
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/card2"
-                    />
-
-                <com.icaynia.tangomemory.View.Card
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/card3"
-                    />
-
-                </LinearLayout>
+                android:background="@drawable/ripple_effect"
+                android:text="GO!"
+                android:textSize="30dp"
+                android:textColor="#FFF"
+                android:gravity="center_vertical|center_horizontal" />
         </LinearLayout>
-
 </LinearLayout>

@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.icaynia.tangomemory.Tutorial.TutorialFragment1;
 import com.icaynia.tangomemory.Tutorial.TutorialFragment2;
+import com.icaynia.tangomemory.Tutorial.TutorialFragment3;
 
 public class TutorialActivity extends AppCompatActivity {
 
@@ -125,6 +126,8 @@ public class TutorialActivity extends AppCompatActivity {
                     return new TutorialFragment1();
                 case 1:
                     return new TutorialFragment2();
+                case 2:
+                    return new TutorialFragment3();
             }
             return PlaceholderFragment.newInstance(position + 1);
         }
@@ -132,7 +135,7 @@ public class TutorialActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return 3;
         }
 
         @Override

@@ -2,14 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.icaynia.tangomemory">
 
-    <uses-sdk
-        android:maxSdkVersion="21"
-        android:minSdkVersion="7"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,22 +18,28 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity"
+                  android:screenOrientation="portrait"/>
         <activity android:name=".infActivity"
+                  android:screenOrientation="portrait"
                   android:theme="@style/Theme.MyApp"/>
         <activity
             android:name=".wordtest.WordToHiragana"
-            android:theme="@style/Theme.MyApp"/>
+            android:theme="@style/Theme.MyApp"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TestActivity"
-            android:theme="@style/Theme.MyApp"/>
+            android:theme="@style/Theme.MyApp"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AboutActivity"
-            android:theme="@style/Theme.MyApp"/>
+            android:theme="@style/Theme.MyApp"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TutorialActivity"
             android:label="@string/title_activity_tutorial"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

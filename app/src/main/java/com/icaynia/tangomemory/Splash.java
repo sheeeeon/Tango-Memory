@@ -24,8 +24,7 @@ public class Splash extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                boolean isFirst = true;
-                        //mPref.getBoolean("isFirst", true);
+                boolean isFirst = mPref.getBoolean("isFirst", true);
                 if (isFirst == true) {
                     SharedPreferences.Editor prefEditor = mPref.edit();
                     prefEditor.putBoolean("isFirst", false);
