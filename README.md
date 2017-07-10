@@ -4,6 +4,10 @@
 
 일본어 단어를 효과적으로 암기하세요! (개발중)
 
+
+> [![acme2](screenshot/screen_1.png)](screenshot)
+> [![acme2](screenshot/screen_2.png)](screenshot)
+
 ## 소개
 
 일본어 단어 암기 어플리케이션입니다.
