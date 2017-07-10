@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.icaynia.tangomemory.Data.logManager;
 import com.icaynia.tangomemory.Data.wordManager;
@@ -30,7 +31,7 @@ import static com.icaynia.tangomemory.R.id.card4;
  */
 
 public class HomeFragment extends android.support.v4.app.Fragment  {
-    private View fragmentView;
+    private LinearLayout fragmentView;
     private wordManager mWordManager;
     private logManager mLogManager;
 
@@ -47,7 +48,7 @@ public class HomeFragment extends android.support.v4.app.Fragment  {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragmentView = inflater.inflate(R.layout.fragment_home, container, false);
+        fragmentView = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false);
         initialize();
         return fragmentView;
     }

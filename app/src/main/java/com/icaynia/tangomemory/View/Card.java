@@ -25,7 +25,7 @@ public class Card extends LinearLayout
     private View mainContent;
     private LinearLayout topLL;
 
-    private View v;
+    private LinearLayout v;
 
     public int[][] theme = {
             {1, 3}
@@ -47,7 +47,7 @@ public class Card extends LinearLayout
 
     public void viewInitialize() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.view_card, this, false);
+        v = (LinearLayout) inflater.inflate(R.layout.view_card, this, false);
 
         addView(v);
 

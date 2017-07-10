@@ -133,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setActionBar() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @Override

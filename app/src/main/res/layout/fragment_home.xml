@@ -14,38 +14,37 @@
             android:orientation="vertical">
 
 
-    <com.icaynia.tangomemory.View.NwTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dashboard"
-        android:textSize="30dp"
-        android:padding="15dp"
-        android:id="@+id/textView5"
-        android:visibility="gone"/>
+            <com.icaynia.tangomemory.View.NwTextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="Dashboard"
+                android:textSize="30dp"/>
 
-    <com.icaynia.tangomemory.View.Card
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/card1"
-        />
+            <com.icaynia.tangomemory.View.Card
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    <com.icaynia.tangomemory.View.Card
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/card2"
-        />
+            <com.icaynia.tangomemory.View.Card
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    <com.icaynia.tangomemory.View.Card
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/card3"
-        />
+            <com.icaynia.tangomemory.View.Card
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    <com.icaynia.tangomemory.View.Card
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/card4"
-        />
+            <com.icaynia.tangomemory.View.Card
+                android:id="@+id/card4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
         </LinearLayout>
     </ScrollView>

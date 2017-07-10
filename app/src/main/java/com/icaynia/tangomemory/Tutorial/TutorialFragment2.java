@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.icaynia.tangomemory.R;
 import com.icaynia.tangomemory.View.Card;
@@ -16,7 +17,7 @@ import com.icaynia.tangomemory.View.YourTangoActivityView;
  */
 
 public class TutorialFragment2 extends android.support.v4.app.Fragment {
-    private View v;
+    private LinearLayout v;
     private Card card1;
     private Card card2;
     private Card card3;
@@ -27,7 +28,7 @@ public class TutorialFragment2 extends android.support.v4.app.Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.fragment_tutorial2, container, false);
+        v = (LinearLayout) inflater.inflate(R.layout.fragment_tutorial2, container, false);
         initialize();
         return v;
     }
