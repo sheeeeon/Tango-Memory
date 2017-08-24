@@ -1,6 +1,6 @@
 # Tango Memory
 
-<a href='https://play.google.com/store/apps/details?id=com.icaynia.dmxario'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height=90px/></a>
+<a href='https://play.google.com/store/apps/details?id=com.icaynia.tangoii'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height=90px/></a>
 
 일본어 단어를 효과적으로 암기하세요! (개발중)
 
