@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tango Memory</string>
+    <string name="drawer_home">홈</string>
+    <string name="drawer_word">단어</string>
+    <string name="drawer_game">게임</string>
+    <string name="drawer_about">Tango Memory에 대하여</string>
+    <string name="message_still_developing">개발중입니다.</string>
+</resources>

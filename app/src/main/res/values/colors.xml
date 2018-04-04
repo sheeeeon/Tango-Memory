@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#68728c</color>
-    <color name="colorPrimaryDark">#68728c</color>
+    <color name="colorPrimaryDark">#2cb200</color>
     <color name="colorAccent">#1e2638</color>
 
     <color name="colorActionBar">#68728c</color>
-    <color name="colorActionBarShadow">#c7c7c7</color>
+    <color name="colorActionBarShadow">#bfbfbf</color>
+
+
+    <color name="statusBarBackground">#0396d9</color>
+    <color name="actionBarBackground">#04a9f4</color>
 
 </resources>
